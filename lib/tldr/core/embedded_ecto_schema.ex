@@ -32,6 +32,8 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
         struct.__schema__(:embeds)
       end
 
+      defoverridable changeset: 2
+
       @before_compile Tldr.Core.EmbeddedEctoSchema
     end
   end

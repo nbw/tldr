@@ -68,7 +68,8 @@ defmodule Tldr.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
       {:fast_rss, "~> 0.5.0"},
-      {:timex, "~> 3.7"}
+      {:timex, "~> 3.7"},
+      {:warpath, "~> 0.6.3"}
     ]
   end
 

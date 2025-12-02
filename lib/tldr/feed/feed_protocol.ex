@@ -5,7 +5,4 @@ defprotocol Tldr.Feed.FeedProtocol do
 
   @doc false
   def index(struct)
-
-  @doc false
-  def show(struct)
 end

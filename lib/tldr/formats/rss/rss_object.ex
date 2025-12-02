@@ -66,8 +66,9 @@ defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject do
         end
 
       %{
+        id: Ecto.UUID.generate(),
         title: item.title,
-        link: item.link,
+        url: extract_url(item.link),
         description: item.description,
         date: date
       }
@@ -75,5 +76,10 @@ defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject do
     |> IndexItem.map_apply()
   end
 
-  def show(_), do: nil
+  defp extract_url(url_string) do
+    case Regex.run(~r/href="([^"]+)"/, url_string) do
+      [_, url] -> url
+      nil -> url_string
+    end
+  end
 end
