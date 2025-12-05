@@ -12,7 +12,7 @@ defmodule Tldr.Kitchen.Actions.Limit do
   end
 
   @impl true
-  def execute(%Step{action: %__MODULE__{} = action}, input) when is_list(input) do
+  def execute(%Step{actor: %__MODULE__{} = action}, input) when is_list(input) do
     {:ok, Enum.take(input, action.count)}
   end
 

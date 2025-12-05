@@ -13,7 +13,7 @@ defmodule Tldr.Kitchen.Actions.JsonGet do
   end
 
   @impl true
-  def execute(%Step{action: %__MODULE__{} = action}, input) do
+  def execute(%Step{actor: %__MODULE__{} = action}, input) do
     url =
       if String.contains?(action.url, "{{val}}") do
         String.replace(action.url, "{{val}}", to_string(input))

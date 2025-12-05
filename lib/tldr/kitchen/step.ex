@@ -7,6 +7,7 @@ defmodule Tldr.Kitchen.Step do
     field :description, :string
     field :params, :map
     field :actor, :any, virtual: true
+    field :hydrate, :boolean, default: false, virtual: true
 
     embeds_many :steps, Tldr.Kitchen.Step
   end
@@ -32,7 +33,7 @@ defmodule Tldr.Kitchen.Step do
         changeset
 
       action ->
-        params = Map.get(attrs, :params, %{})
+        params = Map.get(attrs, :params) || %{}
         module = Module.concat([Tldr.Kitchen.Actions, Macro.camelize(action)])
 
         case module.apply(params) do
@@ -44,4 +45,19 @@ defmodule Tldr.Kitchen.Step do
         end
     end
   end
+
+  @doc """
+  Recursively hydrates a step and its nested steps.
+  """
+  def hydrate(steps) when is_list(steps) do
+    Enum.map(steps, &hydrate/1)
+  end
+
+  def hydrate(%__MODULE__{hydrate: false} = step) do
+    with {:ok, step} <- apply(step) do
+      %{step | steps: hydrate(step.steps), hydrate: true}
+    end
+  end
+
+  def hydrate(%__MODULE__{} = step), do: step
 end

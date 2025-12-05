@@ -41,6 +41,14 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
   # this code is add at the end of the module rather than the top
   defmacro __before_compile__(_env) do
     quote do
+      # apply self to self
+      def apply(%__MODULE__{} = struct) do
+        struct
+        |> changeset(StructToMap.transform(struct))
+        |> apply_action(:insert)
+      end
+
+      # apply params
       def apply(params) do
         %__MODULE__{}
         |> changeset(params)

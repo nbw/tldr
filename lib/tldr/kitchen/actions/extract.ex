@@ -14,7 +14,7 @@ defmodule Tldr.Kitchen.Actions.Extract do
     field :fields, :map
   end
 
-  def execute(%Step{action: %__MODULE__{} = action}, input) do
+  def execute(%Step{actor: %__MODULE__{} = action}, input) do
     Enum.reduce_while(action.fields, {:ok, %{}}, fn {k, v}, {:ok, acc} ->
       case Warpath.query(input, v) do
         {:ok, value} -> {:cont, {:ok, Map.put(acc, k, value)}}

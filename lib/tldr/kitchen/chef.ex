@@ -4,32 +4,38 @@ defmodule Tldr.Kitchen.Chef do
   alias Tldr.Kitchen.Recipe
   alias Tldr.Kitchen.Step
 
-  def cook(%Recipe{} = recipe) do
-    cook(nil, recipe.steps)
+  def cook(%Recipe{steps: steps}) do
+    steps
+    |> Step.hydrate()
+    |> cook()
   end
+
+  def cook(steps, input \\ nil)
 
   # step through each step,
   # with error handling or report at
   # each step
-  def cook(input, [%Step{} = step | steps]) do
-    with {:ok, output} <- execute_action(step, input) do
-      cook(output, steps)
+  def cook([%Step{} = step | steps], input) do
+    with {:ok, output} <- cook(step, input) do
+      cook(steps, output)
+    else
+      {:error, reason} -> {:error, {:step_failed, step, reason}}
     end
   end
 
-  def cook(input, []) do
-    {:ok, input}
-  end
-
-  def execute_action(%Step{} = step, input) do
-    with {:ok, module} <- action_module(step) do
+  def cook(%Step{} = step, input) do
+    with {:ok, module} <- actor_module(step) do
       module.execute(step, input)
     end
   end
 
-  def action_module(%Step{} = step) do
-    case step.action do
-      nil -> {:error, :action_missing}
+  def cook([], input) do
+    {:ok, input}
+  end
+
+  def actor_module(%Step{} = step) do
+    case step.actor do
+      nil -> {:error, :actor_missing}
       struct -> {:ok, struct.__struct__}
     end
   end

@@ -10,7 +10,7 @@ defmodule Tldr.Kitchen.Recipe do
     field :url, :string
     field :user_id, :id
 
-    embeds_many :steps, Tldr.Kitchen.Step
+    embeds_many :steps, Tldr.Kitchen.Step, on_replace: :delete
 
     timestamps(type: :utc_datetime)
   end

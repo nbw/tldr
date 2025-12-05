@@ -10,11 +10,11 @@ defmodule Tldr.Kitchen.Actions.Map do
   embedded_schema do
   end
 
-  def execute(%Step{action: %__MODULE__{}, steps: steps}, base_input) when is_list(base_input) do
+  def execute(%Step{actor: %__MODULE__{}, steps: steps}, base_input) when is_list(base_input) do
     # TODO ERROR HANDLING
     result =
       Enum.map(base_input, fn input ->
-        case Tldr.Kitchen.Chef.cook(input, steps) do
+        case Tldr.Kitchen.Chef.cook(steps, input) do
           {:ok, output} -> output
           {:error, reason} -> {:error, reason}
         end
