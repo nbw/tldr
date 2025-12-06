@@ -1,4 +1,4 @@
-defmodule StructToMap do
+defmodule Tldr.Core.StructToMap do
   @moduledoc """
   Converts a struct to a map, but specifically recursively
   over nested structs and lists of structs.

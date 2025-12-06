@@ -6,25 +6,32 @@ defmodule Tldr.Kitchen.ChefTest do
   alias Tldr.Kitchen.Step
   alias Tldr.Kitchen.Chef
 
-  test "execute/2" do
+  test "cook/2" do
     recipe = %Recipe{
       steps: [
         %Step{
-          action: %Actions.JsonGet{
+          action: "json_get",
+          actor: %Actions.JsonGet{
             url: "https://hacker-news.firebaseio.com/v0/topstories.json"
           }
         },
-        %Step{action: %Tldr.Kitchen.Actions.Limit{count: 3}},
         %Step{
-          action: %Tldr.Kitchen.Actions.Map{},
+          action: "limit",
+          actor: %Tldr.Kitchen.Actions.Limit{count: 3}
+        },
+        %Step{
+          action: "map",
+          actor: %Tldr.Kitchen.Actions.Map{},
           steps: [
             %Step{
-              action: %Actions.JsonGet{
+              action: "json_get",
+              actor: %Actions.JsonGet{
                 url: "https://hacker-news.firebaseio.com/v0/item/{{val}}.json"
               }
             },
             %Step{
-              action: %Tldr.Kitchen.Actions.Extract{
+              action: "extract",
+              actor: %Tldr.Kitchen.Actions.Extract{
                 fields: %{
                   title: "$.title",
                   url: "$.url"

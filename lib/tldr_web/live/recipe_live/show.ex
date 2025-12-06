@@ -25,6 +25,13 @@ defmodule TldrWeb.RecipeLive.Show do
         <:item title="Name">{@recipe.name}</:item>
         <:item title="Type">{@recipe.type}</:item>
         <:item title="URL">{@recipe.url}</:item>
+        <:item title="Steps">
+          <div class="flex flex-col gap-2">
+            <div :for={step <- @recipe.steps} class="border">
+              {step.title}
+            </div>
+          </div>
+        </:item>
       </.list>
       <.live_component module={PreviewComponent} id={@recipe.id} recipe={@recipe} />
     </Layouts.app>

@@ -44,7 +44,7 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
       # apply self to self
       def apply(%__MODULE__{} = struct) do
         struct
-        |> changeset(StructToMap.transform(struct))
+        |> changeset(Tldr.Core.StructToMap.transform(struct))
         |> apply_action(:insert)
       end
 
