@@ -55,6 +55,12 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
         |> apply_action(:insert)
       end
 
+      def apply!(params) do
+        with {:ok, struct} <- apply(params) do
+          struct
+        end
+      end
+
       def map_apply(enum) do
         Enum.reduce(enum, [], fn d, acc ->
           case apply(d) do

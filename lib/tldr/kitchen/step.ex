@@ -46,6 +46,12 @@ defmodule Tldr.Kitchen.Step do
     end
   end
 
+  def new(params \\ %{}) do
+    %__MODULE__{id: Ecto.UUID.generate()}
+    |> changeset(params)
+    |> Ecto.Changeset.apply_changes()
+  end
+
   @doc """
   Recursively hydrates a step and its nested steps.
   """

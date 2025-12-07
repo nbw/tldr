@@ -1,15 +1,13 @@
 defmodule Tldr.Feed do
   @moduledoc false
 
-  alias Tldr.Parsers
   alias Tldr.Kitchen.Recipe
+  alias Tldr.Kitchen.Chef
+  alias Tldr.Feed.Schema.IndexItem
 
   def cook_recipe(%Recipe{} = recipe) do
-    parser = Parsers.get_parser(recipe.type)
-
-    with {:ok, %{body: body}} <- Req.get(recipe.url),
-         {:ok, data} <- parser.parse(body) do
-      Tldr.Feed.FeedProtocol.index(data)
+    with {:ok, items} <- Tldr.Kitchen.Chef.cook(recipe) do
+      IndexItem.map_apply(items)
     end
   end
 end

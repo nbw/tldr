@@ -23,7 +23,6 @@ defmodule TldrWeb.RecipeLive.Index do
       >
         <:col :let={{_id, recipe}} label="Name">{recipe.name}</:col>
         <:col :let={{_id, recipe}} label="Type">{recipe.type}</:col>
-        <:col :let={{_id, recipe}} label="Url">{recipe.url}</:col>
         <:action :let={{_id, recipe}}>
           <div class="sr-only">
             <.link navigate={~p"/recipes/#{recipe}"}>Show</.link>

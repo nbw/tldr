@@ -2,7 +2,6 @@ defmodule TldrWeb.FeedLive.Index do
   use TldrWeb, :live_view
 
   alias Tldr.Kitchen
-  alias Tldr.Core.DateTime, as: DT
 
   import TldrWeb.FeedLive.FeedListComponent
 
@@ -13,7 +12,7 @@ defmodule TldrWeb.FeedLive.Index do
       <.header>
         Feed
       </.header>
-      <.feed_list items={@streams.items} />
+      <.feed_list items={@items} />
     </Layouts.app>
     """
   end
@@ -29,7 +28,7 @@ defmodule TldrWeb.FeedLive.Index do
     {:ok,
      socket
      |> assign(:page_title, "Feed")
-     |> stream(:items, list_feed_items(recipes))}
+     |> assign_async(:items, fn -> {:ok, %{items: list_feed_items(recipes)}} end)}
   end
 
   defp list_recipes(current_scope) do
