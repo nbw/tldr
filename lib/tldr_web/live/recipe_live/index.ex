@@ -19,7 +19,7 @@ defmodule TldrWeb.RecipeLive.Index do
       <.table
         id="recipes"
         rows={@streams.recipes}
-        row_click={fn {_id, recipe} -> JS.navigate(~p"/recipes/#{recipe}") end}
+        row_click={fn {_id, recipe} -> JS.navigate(~p"/recipes/#{recipe}/edit") end}
       >
         <:col :let={{_id, recipe}} label="Name">{recipe.name}</:col>
         <:col :let={{_id, recipe}} label="Type">{recipe.type}</:col>

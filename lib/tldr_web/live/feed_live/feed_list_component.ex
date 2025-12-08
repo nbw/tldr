@@ -1,6 +1,7 @@
 defmodule TldrWeb.FeedLive.FeedListComponent do
   use TldrWeb, :html
 
+  alias Tldr.Feed.Schema.IndexItem
   alias Tldr.Core.DateTime, as: DT
 
   def feed_list(assigns) do

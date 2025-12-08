@@ -37,6 +37,7 @@ body {
 }
 
 @import "tailwindcss" source(none);
+@import "../css/atom-one-dark.min.css";
 @source "../css";
 @source "../js";
 @source "../../lib/tldr_web";

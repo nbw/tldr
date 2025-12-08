@@ -23,8 +23,8 @@ defmodule TldrWeb.RecipeLive.Form do
 
       <.form for={@form} id="recipe-form" phx-change="validate" phx-submit="save">
         <%= if @recipe_type do %>
-          <div class="text-xl">
-            TYPE: {@recipe_type}
+          <div class="text-4xl text-center my-4 uppercase">
+            {@recipe_type}
           </div>
           <.input field={@form[:name]} type="text" label="Name" />
           <.input field={@form[:type]} type="text" label="Type" readonly />
@@ -44,7 +44,13 @@ defmodule TldrWeb.RecipeLive.Form do
           <div>
             <h3 class="font-semibold text-lg">Steps</h3>
             <.inputs_for :let={step_form} field={@form[:steps]}>
-              <.step_fields step_form={step_form} parent_name="recipe" depth={0} />
+              <.step_fields
+                step_form={step_form}
+                step_status={FormHelpers.step_status(@step_statuses, step_form)}
+                step_preview={FormHelpers.step_preview(@step_statuses, step_form)}
+                parent_name="recipe"
+                depth={0}
+              />
             </.inputs_for>
           </div>
           <div
@@ -72,11 +78,100 @@ defmodule TldrWeb.RecipeLive.Form do
     """
   end
 
+  ############### step stuff
+  # Component for rendering a single step with its action-specific params
+  defp step_fields(assigns) do
+    id = Phoenix.HTML.Form.input_value(assigns.step_form, :id)
+    action = Phoenix.HTML.Form.input_value(assigns.step_form, :action)
+    assigns = assigns
+              |> assign(:current_action, action)
+              |> assign(:id, id)
+
+    ~H"""
+    <div class="flex items-center gap-5" id={"step-#{id}"}>
+      <div class="grow border border-gray-300 rounded p-4 relative space-y-3 my-4">
+        <input type="hidden" name={"#{@parent_name}[steps_sort][]"} value={@step_form.index} />
+        <.input field={@step_form[:title]} type="text" label="Step Name" />
+        <.input
+          field={@step_form[:action]}
+          type="select"
+          label="Action"
+          prompt="Select an action..."
+          options={action_options()}
+        />
+        <.step_params_inputs step_form={@step_form} action={@current_action} />
+        <div :if={@step_preview && @step_status == :success} >
+          <div id={"preview-#{id}-toggle"} class="text-center my-2">
+            <div phx-click={
+              JS.toggle(to: "#preview-#{id}")
+              |> JS.dispatch("highlight-code", to: "#preview-#{id}")
+              |> JS.hide(to: "#preview-#{id}-toggle")
+            }>
+              <.icon name="hero-chevron-down" class="w-5 h-5" />
+            </div>
+          </div>
+          <div
+            id={"preview-#{id}"}
+            phx-hook="HighlightCode"
+            class="max-h-[29rem] max-w-full overflow-scroll hidden">
+            <pre class="whitespace-pre-wrap break-words text-xs"><code class="language-elixir">
+{inspect(@step_preview, pretty: true)}
+            </code></pre>
+            <div class="text-center my-2">
+              <div phx-click={
+                JS.toggle(to: "#preview-#{id}")
+                |> JS.show(to: "#preview-#{id}-toggle")
+              }>
+                <.icon name="hero-chevron-up" class="w-5 h-5" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          phx-click="delete_step"
+          phx-value-index={step_index(@step_form)}
+          class="absolute top-3 right-2 text-red-600 hover:text-red-800"
+        >
+          <.icon name="hero-trash" class="w-5 h-5" />
+        </button>
+
+      </div>
+      <div>
+        <%= case @step_status do %>
+            <% :loading -> %>
+              <div>
+                <svg class="mr-3 -ml-1 size-5 animate-spin text-normal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              </div>
+            <% :success -> %>
+              <div phx-click="preview" phx-value-id={@step_form.data.id}>
+               <.icon name="hero-check-circle text-sm text-emerald-500 opacity-70" class="w-7 h-7" />
+              </div>
+            <% :error -> %>
+              <div>
+                <.icon name="hero-exclamation-circle text-rose-500 text-sm opacity-70" class="w-5 h-5" />
+              </div>
+            <% _ -> %>
+              <div phx-click="preview" phx-value-id={@step_form.data.id}>
+                <.icon name="hero-play-circle text-normal opacity-70" class="w-7 h-7" />
+              </div>
+        <% end %>
+      </div>
+    </div>
+    """
+  end
+
+
   @impl true
   def mount(params, _session, socket) do
     {:ok,
      socket
      |> assign(:return_to, return_to(params["return_to"]))
+     |> assign(:step_statuses, %{})
      |> assign(:preview, nil)
      |> apply_action(socket.assigns.live_action, params)}
   end
@@ -86,6 +181,10 @@ defmodule TldrWeb.RecipeLive.Form do
     recipe = current_scope
              |> Kitchen.get_recipe!(id)
              |> FormHelpers.decode_params_for_form()
+
+    if connected?(socket) do
+      TldrWeb.PubSub.subscribe("recipe:#{id}")
+    end
 
     form =
       current_scope
@@ -101,7 +200,11 @@ defmodule TldrWeb.RecipeLive.Form do
 
   defp apply_action(socket, :new, _params) do
     current_scope = socket.assigns.current_scope
-    recipe = %Recipe{user_id: current_scope.user.id}
+    recipe = %Recipe{id: Ecto.UUID.generate(), user_id: current_scope.user.id}
+
+    if connected?(socket) do
+      TldrWeb.PubSub.subscribe("recipe:#{recipe.id}")
+    end
 
     socket
     |> assign(:page_title, "New Recipe")
@@ -117,6 +220,7 @@ defmodule TldrWeb.RecipeLive.Form do
       "json_get" -> Components.JsonGetStep
       "limit" -> Components.LimitStep
       "extract" -> Components.ExtractStep
+      "format" -> Components.FormatStep
       "map" -> Components.MapStep
       _ -> raise "missing step component: #{step}"
     end
@@ -191,17 +295,21 @@ defmodule TldrWeb.RecipeLive.Form do
   end
 
   def handle_event("preview", %{"id" => id}, socket) do
+    recipe = socket.assigns.recipe
     steps = socket.assigns.form
-                   |> Phoenix.HTML.Form.input_value(:steps)
-                   |> Enum.map(fn
-                     %Ecto.Changeset{} = ch ->
-                        # FormHelpers.encode_params_for_save
-                        Ecto.Changeset.apply_action!(ch, :apply)
-                        |> Map.from_struct()
-                        |> FormHelpers.encode_transform_step_params()
-                        |> Step.apply!()
-                     step -> step
-                   end)
+            |> Phoenix.HTML.Form.input_value(:steps)
+            |> Enum.map(fn
+              %Ecto.Changeset{} = ch ->
+                 Ecto.Changeset.apply_action!(ch, :apply)
+                 |> Map.from_struct()
+                 |> FormHelpers.encode_transform_step_params()
+                 |> Step.apply!()
+              step ->
+                step
+                |> Map.from_struct()
+                |> FormHelpers.encode_transform_step_params()
+                |> Step.apply!()
+            end)
 
     preview_steps = Enum.reduce_while(steps, [], fn
       %{id: step_id} = step, acc when step_id == id  ->
@@ -211,16 +319,20 @@ defmodule TldrWeb.RecipeLive.Form do
     end)
     |> Enum.reverse()
 
-    dbg(preview_steps)
-
-    socket = case Chef.cook(preview_steps) do
-              {:ok, preview} -> assign(socket, :preview, preview)
-              {:error, error} ->
-                Logger.error(error)
-                socket
-                |> assign(:preview, nil)
-                |> put_flash(:error, "Failed to preview recipe")
-             end
+    Task.start(fn ->
+      Enum.each(preview_steps, fn step ->
+        TldrWeb.PubSub.broadcast("recipe:#{recipe.id}", {:step, step.id, :loading, %{}})
+      end)
+      Chef.cook_with_monitor(preview_steps, "recipe:#{recipe.id}")
+    end)
+    # socket = case  do
+    #           {:ok, preview} -> assign(socket, :preview, preview)
+    #           {:error, error} ->
+    #             Logger.error(error)
+    #             socket
+    #             |> assign(:preview, nil)
+    #             |> put_flash(:error, "Failed to preview recipe")
+    #          end
 
     {:noreply, socket}
   end
@@ -229,15 +341,23 @@ defmodule TldrWeb.RecipeLive.Form do
     save_recipe(socket, socket.assigns.action, recipe_params)
   end
 
+  def handle_info({:step, step_id, status, payload}, socket) do
+    step_statuses = socket.assigns.step_statuses
+                    |> Map.put(step_id, %{status: status, preview: payload})
+
+    {:noreply, assign(socket, step_statuses: step_statuses)}
+  end
+
   defp save_recipe(socket, :new, recipe_params) do
     case Kitchen.create_recipe(socket.assigns.current_scope, recipe_params) do
       {:ok, recipe} ->
         {:noreply,
          socket
          |> put_flash(:info, "Recipe created successfully")
-         |> push_navigate(
-           to: return_path(socket.assigns.current_scope, socket.assigns.return_to, recipe)
-         )}
+         }
+         # |> push_navigate(
+         #   to: return_path(socket.assigns.current_scope, socket.assigns.return_to, recipe)
+         # )}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign(socket, form: to_form(changeset))}
@@ -249,10 +369,10 @@ defmodule TldrWeb.RecipeLive.Form do
       {:ok, recipe} ->
         {:noreply,
          socket
-         |> put_flash(:info, "Recipe updated successfully")
-         |> push_navigate(
-           to: return_path(socket.assigns.current_scope, socket.assigns.return_to, recipe)
-         )}
+         |> put_flash(:info, "Recipe updated successfully")}
+         # |> push_navigate(
+         #   to: return_path(socket.assigns.current_scope, socket.assigns.return_to, recipe)
+         # )}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign(socket, form: to_form(changeset))}
@@ -260,49 +380,7 @@ defmodule TldrWeb.RecipeLive.Form do
   end
 
   def disable_save?(form) do
-    form.data.type == nil
-  end
-
-
-  ############### step stuff
-  # Component for rendering a single step with its action-specific params
-  defp step_fields(assigns) do
-    action = Phoenix.HTML.Form.input_value(assigns.step_form, :action)
-    assigns = assign(assigns, :current_action, action)
-
-    ~H"""
-    <div class="flex items-center gap-4">
-      <div class="grow border border-gray-300 rounded p-4 relative space-y-3 my-4">
-        <input type="hidden" name={"#{@parent_name}[steps_sort][]"} value={@step_form.index} />
-
-        <.input field={@step_form[:title]} type="text" label="Step Name" />
-
-        <.input
-          field={@step_form[:action]}
-          type="select"
-          label="Action"
-          prompt="Select an action..."
-          options={action_options()}
-        />
-
-        <.step_params_inputs step_form={@step_form} action={@current_action} />
-
-        <button
-          type="button"
-          phx-click="delete_step"
-          phx-value-index={step_index(@step_form)}
-          class="absolute top-2 right-2 text-red-600 hover:text-red-800"
-        >
-          <.icon name="hero-trash" class="w-5 h-5" />
-        </button>
-      </div>
-      <div>
-        <div phx-click="preview" phx-value-id={@step_form.data.id}>
-          <.icon name="hero-play-circle text-normal opacity-70" class="w-8 h-8" />
-        </div>
-      </div>
-    </div>
-    """
+    Phoenix.HTML.Form.input_value(form, :type) == nil
   end
 
   # Dynamic params inputs based on action type
@@ -315,9 +393,10 @@ defmodule TldrWeb.RecipeLive.Form do
 
   defp action_options do
     [
-      {"JSON GET", "json_get"},
+      {"Http GET", "json_get"},
       {"Limit", "limit"},
       {"Extract", "extract"},
+      {"Format", "format"},
     ]
   end
 

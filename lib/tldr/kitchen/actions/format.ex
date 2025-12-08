@@ -1,6 +1,6 @@
-defmodule Tldr.Kitchen.Actions.Extract do
+defmodule Tldr.Kitchen.Actions.Format do
   @moduledoc """
-  Extracts data from a list of maps.
+  Formats maps data.
   """
 
   alias Tldr.Kitchen.Step
@@ -24,16 +24,17 @@ defmodule Tldr.Kitchen.Actions.Extract do
   end
 
   def execute(%Step{actor: %__MODULE__{} = action}, input) when is_map(input) do
-    Enum.reduce_while(action.fields, {:ok, %{}}, fn {k, v}, {:ok, acc} ->
-      case Warpath.query(input, v) do
-        {:ok, value} -> {:cont, {:ok, Map.put(acc, k, value)}}
-        {:error, reason} -> {:halt, {:error, reason}}
-      end
+    Enum.reduce(action.fields, {:ok, input}, fn {key, formula}, {:ok, acc} ->
+      {:ok, Map.put(input, key, apply_formula(input, formula))}
     end)
-    |> case do
-      {:ok, %{"_index" => result}} when is_list(result) -> {:ok, result}
-      {:ok, result} -> {:ok, result}
-      {:error, reason} -> {:error, reason}
-    end
+  end
+
+  def apply_formula(input, formula) do
+    matches = Regex.scan(~r/\{\{([^}]+)\}\}/, formula)
+
+    Enum.reduce(matches, formula, fn [match, key], acc ->
+      value = Map.get(input, key)
+      String.replace(acc, match, to_string(value))
+    end)
   end
 end

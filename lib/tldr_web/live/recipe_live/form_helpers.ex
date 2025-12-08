@@ -12,8 +12,8 @@ defmodule TldrWeb.RecipeLive.FormHelpers do
   def decode_params_for_form(params), do: params
 
   defp decode_transform_step_params(
-    %Step{action: "extract", params: %{"fields" => fields}} = step
-  ) when is_map(fields) do
+    %Step{action: action, params: %{"fields" => fields}} = step
+  ) when is_map(fields) and action in ["extract", "format"] do
     # Convert from %{"kagi" => "$.title", ...}
     # to %{"0" => %{"key" => "kagi", "value" => "$.title"}, "1" => {...}}
     transformed_fields =
@@ -43,8 +43,8 @@ defmodule TldrWeb.RecipeLive.FormHelpers do
   def encode_params_for_save(params), do: params
 
   def encode_transform_step_params(
-         %{"action" => "extract", "params" => %{"fields" => fields}} = step
-       ) when is_map(fields) do
+         %{"action" => action, "params" => %{"fields" => fields}} = step
+       ) when is_map(fields) and action in ["extract", "format"] do
     # Convert from %{"0" => %{"key" => "kagi", "value" => "$.title"}, "1" => {...}}
     # to %{"kagi" => "$.title", ...}
     transformed_fields =
@@ -57,8 +57,8 @@ defmodule TldrWeb.RecipeLive.FormHelpers do
   end
 
   def encode_transform_step_params(
-         %{action: "extract", params: %{"fields" => fields}} = step
-       ) when is_map(fields) do
+         %{action: action, params: %{"fields" => fields}} = step
+       ) when is_map(fields) and action in ["extract", "format"] do
     # Convert from %{"0" => %{"key" => "kagi", "value" => "$.title"}, "1" => {...}}
     # to %{"kagi" => "$.title", ...}
     transformed_fields =
@@ -71,4 +71,18 @@ defmodule TldrWeb.RecipeLive.FormHelpers do
   end
 
   def encode_transform_step_params(step), do: step
+
+  def step_status(step_statuses, step_form) do
+    id = Phoenix.HTML.Form.input_value(step_form, :id)
+
+    Map.get(step_statuses, id, %{})
+    |> Map.get(:status)
+  end
+
+  def step_preview(step_statuses, step_form) do
+    id = Phoenix.HTML.Form.input_value(step_form, :id)
+
+    Map.get(step_statuses, id, %{})
+    |> Map.get(:preview)
+  end
 end
