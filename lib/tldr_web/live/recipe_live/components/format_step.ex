@@ -8,16 +8,16 @@ defmodule TldrWeb.RecipeLive.Components.FormatStep do
   def step_params_inputs(%{action: "format"} = assigns) do
     ~H"""
     <div class="bg-gray-50 p-3 rounded">
-      <p class="text-sm text-gray-600 mb-3">
+      <p class="text-sm text-base-content/70 mb-3">
         Format the input map using functions for each field. If a function isn't present the original value is used.
       </p>
       <div class="space-y-2 mb-3">
         <% fields = get_extract_fields(@step_form) %>
         <%= if fields == [] do %>
-          <p class="text-sm text-gray-500 italic">No fields configured yet.</p>
+          <p class="text-sm text-base-content/70 italic">No fields configured yet.</p>
         <% else %>
           <div :for={{idx, %{"key" => key, "value" => value}} <- fields}>
-            <div class="flex gap-2 items-center bg-white p-2 rounded border border-gray-200">
+            <div class="flex gap-2 items-center p-2 rounded border border-gray-200">
               <input
                 type="text"
                 name={"#{@step_form.name}[params][fields][#{idx}][key]"}
@@ -25,7 +25,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatStep do
                 placeholder="Field name"
                 class="flex-1 px-2 py-1 border border-gray-300 rounded text-sm"
               />
-              <span class="text-gray-400">→</span>
+              <span class="text-base-content/50">→</span>
               <input
                 type="text"
                 name={"#{@step_form.name}[params][fields][#{idx}][value]"}
@@ -38,7 +38,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatStep do
                 phx-click="step-format:remove_format_field"
                 phx-value-id={step_id(@step_form)}
                 phx-value-idx={idx}
-                class="text-red-600 hover:text-red-800 text-sm"
+                class="text-rose-400 hover:text-rose-500 text-sm"
               >
                 <.icon name="hero-trash" class="w-4 h-4" />
               </button>
@@ -52,7 +52,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatStep do
         phx-click="step-format:add_format_field"
         phx-value-id={step_id(@step_form)}
         phx-value-index={step_index(@step_form)}
-        class="block w-full border border-emerald-400 bg-emerald-100 rounded p-2 text-emerald-700 text-center text-sm hover:bg-emerald-200"
+        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 bg-gray-300/50 rounded p-2 text-gray-700 text-center text-sm hover:bg-gray-300/60"
       >
         <.icon name="hero-plus-circle" class="w-4 h-4" /> Add field
       </button>

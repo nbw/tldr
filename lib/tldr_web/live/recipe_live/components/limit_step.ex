@@ -5,7 +5,7 @@ defmodule TldrWeb.RecipeLive.Components.LimitStep do
 
   def step_params_inputs(%{action: "limit"} = assigns) do
     ~H"""
-    <div class="bg-gray-50 p-3 rounded">
+    <div class="p-3 rounded">
       <.input
         name={"#{@step_form.name}[params][count]"}
         value={get_param_value(@step_form, "count")}
