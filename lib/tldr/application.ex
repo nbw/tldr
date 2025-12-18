@@ -8,6 +8,8 @@ defmodule Tldr.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Registry, keys: :unique, name: Tldr.AgentRegistry},
+      {DynamicSupervisor, name: Tldr.AgentSupervisor, strategy: :one_for_one},
       TldrWeb.Telemetry,
       Tldr.Repo,
       {Ecto.Migrator,

@@ -69,7 +69,8 @@ defmodule Tldr.MixProject do
       {:bandit, "~> 1.5"},
       {:fast_rss, "~> 0.5.0"},
       {:timex, "~> 3.7"},
-      {:warpath, "~> 0.6.3"}
+      {:warpath, "~> 0.6.3"},
+      {:langchain, "~> 0.4.0"}
     ]
   end
 
