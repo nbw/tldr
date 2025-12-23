@@ -62,33 +62,37 @@ body {
     default: false;
     prefersdark: true;
     color-scheme: "dark";
-    --color-base-100: oklch(30.33% 0.016 252.42);
-    --color-base-200: oklch(25.26% 0.014 253.1);
-    --color-base-300: oklch(20.15% 0.012 254.09);
-    --color-base-content: oklch(97.807% 0.029 256.847);
-    --color-primary: oklch(58% 0.233 277.117);
-    --color-primary-content: oklch(96% 0.018 272.314);
-    --color-secondary: oklch(58% 0.233 277.117);
-    --color-secondary-content: oklch(96% 0.018 272.314);
-    --color-accent: oklch(60% 0.25 292.717);
-    --color-accent-content: oklch(96% 0.016 293.756);
-    --color-neutral: oklch(37% 0.044 257.287);
-    --color-neutral-content: oklch(98% 0.003 247.858);
-    --color-info: oklch(58% 0.158 241.966);
-    --color-info-content: oklch(97% 0.013 236.62);
-    --color-success: oklch(60% 0.118 184.704);
-    --color-success-content: oklch(98% 0.014 180.72);
-    --color-warning: oklch(66% 0.179 58.318);
-    --color-warning-content: oklch(98% 0.022 95.277);
-    --color-error: oklch(58% 0.253 17.585);
-    --color-error-content: oklch(96% 0.015 12.422);
-    --radius-selector: 0.25rem;
-    --radius-field: 0.25rem;
-    --radius-box: 0.5rem;
+    /* Slate + Ash inspired dark theme - charcoal base with muted pastels */
+    --color-base-100: oklch(28% 0.012 260);
+    --color-base-200: oklch(24% 0.010 260);
+    --color-base-300: oklch(20% 0.008 260);
+    --color-base-content: oklch(85% 0.015 260);
+    /* Muted lavender primary */
+    --color-primary: oklch(72% 0.08 280);
+    --color-primary-content: oklch(20% 0.01 280);
+    /* Soft sage secondary */
+    --color-secondary: oklch(70% 0.06 165);
+    --color-secondary-content: oklch(20% 0.01 165);
+    /* Dusty rose accent */
+    --color-accent: oklch(75% 0.08 25);
+    --color-accent-content: oklch(20% 0.01 25);
+    --color-neutral: oklch(35% 0.02 260);
+    --color-neutral-content: oklch(90% 0.01 260);
+    --color-info: oklch(70% 0.10 220);
+    --color-info-content: oklch(20% 0.01 220);
+    --color-success: oklch(70% 0.10 165);
+    --color-success-content: oklch(20% 0.01 165);
+    --color-warning: oklch(75% 0.12 85);
+    --color-warning-content: oklch(20% 0.01 85);
+    --color-error: oklch(65% 0.15 25);
+    --color-error-content: oklch(95% 0.01 25);
+    --radius-selector: 0.125rem;
+    --radius-field: 0.125rem;
+    --radius-box: 0.25rem;
     --size-selector: 0.21875rem;
     --size-field: 0.21875rem;
-    --border: 1.5px;
-    --depth: 1;
+    --border: 1px;
+    --depth: 0;
     --noise: 0;
 }
 
@@ -97,33 +101,37 @@ body {
     default: true;
     prefersdark: false;
     color-scheme: "light";
-    --color-base-100: oklch(98% 0 0);
-    --color-base-200: oklch(96% 0.001 286.375);
-    --color-base-300: oklch(92% 0.004 286.32);
-    --color-base-content: oklch(21% 0.006 285.885);
-    --color-primary: oklch(35% 0.12 250);
-    --color-primary-content: oklch(98% 0.016 73.684);
-    --color-secondary: oklch(55% 0.027 264.364);
-    --color-secondary-content: oklch(98% 0.002 247.839);
-    --color-accent: oklch(0% 0 0);
-    --color-accent-content: oklch(100% 0 0);
-    --color-neutral: oklch(44% 0.017 285.786);
-    --color-neutral-content: oklch(98% 0 0);
-    --color-info: oklch(62% 0.214 259.815);
-    --color-info-content: oklch(97% 0.014 254.604);
-    --color-success: oklch(70% 0.14 182.503);
-    --color-success-content: oklch(98% 0.014 180.72);
-    --color-warning: oklch(66% 0.179 58.318);
-    --color-warning-content: oklch(98% 0.022 95.277);
-    --color-error: oklch(58% 0.253 17.585);
-    --color-error-content: oklch(96% 0.015 12.422);
-    --radius-selector: 0.25rem;
-    --radius-field: 0.25rem;
-    --radius-box: 0.5rem;
+    /* Slate + Ash inspired light theme - warm off-white with muted pastels */
+    --color-base-100: oklch(97% 0.008 80);
+    --color-base-200: oklch(94% 0.012 80);
+    --color-base-300: oklch(90% 0.015 80);
+    --color-base-content: oklch(25% 0.015 260);
+    /* Muted slate blue primary */
+    --color-primary: oklch(45% 0.08 260);
+    --color-primary-content: oklch(97% 0.008 80);
+    /* Soft sage secondary */
+    --color-secondary: oklch(55% 0.06 165);
+    --color-secondary-content: oklch(97% 0.008 80);
+    /* Dusty coral accent */
+    --color-accent: oklch(65% 0.10 30);
+    --color-accent-content: oklch(97% 0.008 80);
+    --color-neutral: oklch(40% 0.02 260);
+    --color-neutral-content: oklch(97% 0.008 80);
+    --color-info: oklch(55% 0.12 240);
+    --color-info-content: oklch(97% 0.01 240);
+    --color-success: oklch(55% 0.12 165);
+    --color-success-content: oklch(97% 0.01 165);
+    --color-warning: oklch(70% 0.14 85);
+    --color-warning-content: oklch(25% 0.01 85);
+    --color-error: oklch(55% 0.18 25);
+    --color-error-content: oklch(97% 0.01 25);
+    --radius-selector: 0.125rem;
+    --radius-field: 0.125rem;
+    --radius-box: 0.25rem;
     --size-selector: 0.21875rem;
     --size-field: 0.21875rem;
-    --border: 1.5px;
-    --depth: 1;
+    --border: 1px;
+    --depth: 0;
     --noise: 0;
 }
 
@@ -142,3 +150,54 @@ body {
 }
 
 /* This file is for your main application CSS */
+
+/* Landing page styles - Slate + Ash aesthetic */
+.landing-hero {
+    min-height: calc(100vh - 12rem);
+}
+
+
+/* Slogan text styling */
+.slogan {
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}
+
+/* Solid decorative lines */
+.deco-line {
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.15;
+}
+
+.deco-line-accent {
+    height: 2px;
+    opacity: 0.4;
+}
+
+/* Section dividers - full width bands */
+.section-band {
+    border-top: 1px solid oklch(50% 0.02 260 / 0.15);
+    border-bottom: 1px solid oklch(50% 0.02 260 / 0.15);
+}
+
+/* CTA button landing style */
+.btn-landing {
+    border: 1px solid currentColor;
+    background: transparent;
+    padding: 0.75rem 2rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    transition: all 0.2s ease;
+}
+
+.btn-landing:hover {
+    background: oklch(50% 0.02 260 / 0.08);
+}
+
+.bg-mesh {
+    background-image: url("/images/background.png");
+    background-repeat: repeat;
+}

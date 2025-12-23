@@ -1,29 +1,110 @@
-<Layouts.app flash={@flash} current_scope={@current_scope}>
-  <div class="flex items-center justify-center min-h-[calc(100vh-20rem)]">
-    <%= cond do %>
-      <% @current_scope && @current_scope.user && @recipes && Enum.count(@recipes) > 0 -> %>
-        <.link
-          href={~p"/feed"}
-          class="btn btn-primary btn-lg px-8 py-4 text-lg font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-lg"
-        >
-          Go to Feed
+<Layouts.landing flash={@flash} current_scope={@current_scope}>
+  <div class="min-h-[calc(100vh-10rem)]">
+    <%!-- Hero Section --%>
+    <section class="py-12 sm:py-12 flex flex-col items-center text-center border-b border-current/15">
+      <div class="mb-10">
+        <.link navigate={~p"/"} class="block">
+          <div class="logo text-[3rem] sm:text-[5rem] flex gap-0.5 justify-center pt-6 text-base-content/80 hover:text-base-content transition-colors">
+            <div class="hover:-translate-y-1 duration-150 ease-out">T</div>
+            <div class="hover:-translate-y-1 duration-150 ease-out">L</div>
+            <div class="hover:-translate-y-1 duration-150 ease-out">D</div>
+            <div class="hover:-translate-y-1 duration-150 ease-out">R</div>
+          </div>
         </.link>
+        <p class="slogan text-base-content/50 text-sm uppercase tracking-[0.2em] mb-4">
+          Your news in one place
+        </p>
+        <div class="flex flex-col gap-2">
+          <div class="w-full max-w-10rem h-3 bg-base-content/80 hover:bg-base-content/90"></div>
+          <div class="w-full max-w-10rem h-3 bg-base-content/60 hover:bg-base-content/70"></div>
+          <div class="w-full max-w-10rem h-3 bg-base-content/40 hover:bg-base-content/50"></div>
+          <div class="w-full max-w-10rem h-3 bg-base-content/20 hover:bg-base-content/30"></div>
+          <div class="w-full max-w-10rem h-3 bg-base-content/10 hover:bg-base-content/20"></div>
+          <div class="w-full max-w-10rem h-3 bg-base-content/3 hover:bg-base-content/10"></div>
+        </div>
+      </div>
 
-      <% @current_scope && @current_scope.user && (@recipes == nil || Enum.empty?(@recipes)) -> %>
-        <.link
-          href={~p"/recipes"}
-          class="btn btn-primary btn-lg px-8 py-4 text-lg font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-lg"
-        >
-          Create Your First Recipe
-        </.link>
+      <%= cond do %>
+        <% @current_scope && @current_scope.user && @recipes && Enum.count(@recipes) > 0 -> %>
+          <.link href={~p"/feed"} class="btn-landing text-base-content/70 hover:text-base-content mt-4">
+            Go to Feed
+          </.link>
 
-      <% true -> %>
-        <.link
-          href={~p"/users/register"}
-          class="btn btn-primary btn-lg px-8 py-4 text-lg font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-lg"
-        >
-          Sign Up
-        </.link>
-    <% end %>
+        <% @current_scope && @current_scope.user && (@recipes == nil || Enum.empty?(@recipes)) -> %>
+          <.link href={~p"/recipes"} class="btn-landing text-base-content/70 hover:text-base-content mt-4">
+            Create Recipe
+          </.link>
+
+        <% true -> %>
+          <.link href={~p"/users/register"} class="btn-landing text-base-content/70 hover:text-base-content mt-4">
+            Get Started
+          </.link>
+      <% end %>
+    </section>
+
+    <%!-- Description Section --%>
+    <section class="py-20 sm:py-24 flex flex-col items-center text-center bg-mesh">
+      <h1 class="text-2xl sm:text-3xl font-light text-base-content/90 mb-6 leading-relaxed">
+        A minimal news aggregator for you.
+      </h1>
+      <p class="text-base-content text-sm max-w-md leading-relaxed tracking-wide">
+        Filter, transform, and organize the content that matters to you.
+      </p>
+    </section>
+
+    <%!-- Visual Elements Section --%>
+    <section class="py-16 sm:py-20  border-t border-current/15">
+      <div class="flex justify-center gap-3">
+        <%!-- Decorative grid blocks --%>
+        <div class="grid grid-cols-4 gap-1">
+          <div class="w-3 h-3 bg-primary/30 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-secondary/30 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-accent/30 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+        </div>
+
+        <div class="w-px bg-base-content/10 mx-4"></div>
+
+        <div class="grid grid-cols-4 gap-1">
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-primary/20 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-secondary/25 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-accent/25 rounded-sm"></div>
+        </div>
+
+        <div class="w-px bg-base-content/10 mx-4"></div>
+
+        <div class="grid grid-cols-4 gap-1">
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-accent/20 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-base-content/10 rounded-sm"></div>
+          <div class="w-3 h-3 bg-primary/25 rounded-sm"></div>
+          <div class="w-3 h-3 bg-secondary/20 rounded-sm"></div>
+        </div>
+      </div>
+    </section>
+
+    <%!-- Divider --%>
+    <div class="w-full mx-auto px-8">
+      <div class="deco-line w-full"></div>
+    </div>
+
+    <%!-- Footer tagline --%>
+    <section class="py-16 sm:py-20 flex flex-col items-center text-center">
+      <p class="slogan text-base-content/35 text-xs uppercase tracking-[0.25em]">
+        For everyone, by developers
+      </p>
+    </section>
   </div>
-</Layouts.app>
+</Layouts.landing>

@@ -33,40 +33,73 @@ defmodule TldrWeb.Layouts do
 
   slot :inner_block, required: true
 
-  def app(assigns) do
+  def landing(assigns) do
     ~H"""
-    <header class="navbar px-4 sm:px-6 lg:px-8">
-      <ul class="menu menu-horizontal w-full relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+    <header class="px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center justify-end gap-6 text-sm text-base-content/60">
         <%= if @current_scope do %>
-          <li>
-            <.link href={~p"/feed"}>Feed</.link>
-          </li>
-          <li>
-            <.link href={~p"/recipes"}>Recipes</.link>
-          </li>
-          <li>
-            <.link href={~p"/users/settings"}>Settings</.link>
-          </li>
-          <li>
-            <.link href={~p"/users/log-out"} method="delete">Log out</.link>
-          </li>
+          <.link href={~p"/feed"} class="hover:text-base-content transition-colors tracking-wide">
+            Feed
+          </.link>
+          <.link href={~p"/recipes"} class="hover:text-base-content transition-colors tracking-wide">
+            Recipes
+          </.link>
+          <.link href={~p"/users/settings"} class="hover:text-base-content transition-colors tracking-wide">
+            Settings
+          </.link>
+          <.link href={~p"/users/log-out"} method="delete" class="hover:text-base-content transition-colors tracking-wide">
+            Log out
+          </.link>
         <% else %>
-          <li>
-            <.link href={~p"/users/register"}>Register</.link>
-          </li>
-          <li>
-            <.link href={~p"/users/log-in"}>Log in</.link>
-          </li>
+          <.link href={~p"/users/register"} class="hover:text-base-content transition-colors tracking-wide">
+            Register
+          </.link>
+          <.link href={~p"/users/log-in"} class="hover:text-base-content transition-colors tracking-wide">
+            Log in
+          </.link>
         <% end %>
-        <li>
-          <div class="py-4">
-          <.theme_toggle />
-          </div>
-        </li>
-      </ul>
+        <.theme_toggle />
+      </nav>
     </header>
 
-    <main class="px-4 py-5 sm:px-6 lg:px-8">
+    <main class="relative">
+      {render_slot(@inner_block)}
+    </main>
+
+    <.flash_group flash={@flash} />
+    """
+  end
+
+  def app(assigns) do
+    ~H"""
+    <header class="px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center justify-end gap-6 text-sm text-base-content/60">
+        <%= if @current_scope do %>
+          <.link href={~p"/feed"} class="hover:text-base-content transition-colors tracking-wide">
+            Feed
+          </.link>
+          <.link href={~p"/recipes"} class="hover:text-base-content transition-colors tracking-wide">
+            Recipes
+          </.link>
+          <.link href={~p"/users/settings"} class="hover:text-base-content transition-colors tracking-wide">
+            Settings
+          </.link>
+          <.link href={~p"/users/log-out"} method="delete" class="hover:text-base-content transition-colors tracking-wide">
+            Log out
+          </.link>
+        <% else %>
+          <.link href={~p"/users/register"} class="hover:text-base-content transition-colors tracking-wide">
+            Register
+          </.link>
+          <.link href={~p"/users/log-in"} class="hover:text-base-content transition-colors tracking-wide">
+            Log in
+          </.link>
+        <% end %>
+        <.theme_toggle />
+      </nav>
+    </header>
+
+    <main class="relative px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl space-y-4">
         {render_slot(@inner_block)}
       </div>
@@ -126,31 +159,31 @@ defmodule TldrWeb.Layouts do
   """
   def theme_toggle(assigns) do
     ~H"""
-    <div class="card relative flex flex-row items-center border-2 border-base-300 bg-base-300 rounded-full">
-      <div class="absolute w-1/3 h-full rounded-full border-1 border-base-200 bg-base-100 brightness-200 left-0 [[data-theme=light]_&]:left-1/3 [[data-theme=dark]_&]:left-2/3 transition-[left]" />
+    <div class="relative flex flex-row items-center bg-base-300/50 rounded-sm">
+      <div class="absolute w-1/3 h-full rounded-sm bg-base-content/10 left-0 [[data-theme=light]_&]:left-1/3 [[data-theme=dark]_&]:left-2/3 transition-[left] duration-200" />
 
       <button
-        class="flex p-2 cursor-pointer w-1/3"
+        class="flex p-1.5 cursor-pointer w-1/3 relative z-10"
         phx-click={JS.dispatch("phx:set-theme")}
         data-phx-theme="system"
       >
-        <.icon name="hero-computer-desktop-micro" class="size-4 opacity-75 hover:opacity-100" />
+        <.icon name="hero-computer-desktop-micro" class="size-3.5 opacity-50 hover:opacity-100 transition-opacity" />
       </button>
 
       <button
-        class="flex p-2 cursor-pointer w-1/3"
+        class="flex p-1.5 cursor-pointer w-1/3 relative z-10"
         phx-click={JS.dispatch("phx:set-theme")}
         data-phx-theme="light"
       >
-        <.icon name="hero-sun-micro" class="size-4 opacity-75 hover:opacity-100" />
+        <.icon name="hero-sun-micro" class="size-3.5 opacity-50 hover:opacity-100 transition-opacity" />
       </button>
 
       <button
-        class="flex p-2 cursor-pointer w-1/3"
+        class="flex p-1.5 cursor-pointer w-1/3 relative z-10"
         phx-click={JS.dispatch("phx:set-theme")}
         data-phx-theme="dark"
       >
-        <.icon name="hero-moon-micro" class="size-4 opacity-75 hover:opacity-100" />
+        <.icon name="hero-moon-micro" class="size-3.5 opacity-50 hover:opacity-100 transition-opacity" />
       </button>
     </div>
     """
