@@ -87,6 +87,8 @@ defmodule TldrWeb do
       # Core UI components
       import TldrWeb.CoreComponents
 
+      import TldrWeb.CustomIcons
+
       # Common modules used in templates
       alias Phoenix.LiveView.JS
       alias TldrWeb.Layouts

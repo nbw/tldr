@@ -70,9 +70,10 @@ defmodule TldrWeb.Layouts do
     """
   end
 
+  attr :class, :string, default: ""
   def app(assigns) do
     ~H"""
-    <header class="px-4 sm:px-6 lg:px-8 py-3">
+    <header class={["px-4 sm:px-6 lg:px-8 py-3", @class]}>
       <nav class="flex items-center justify-end gap-6 text-sm text-base-content/60">
         <%= if @current_scope do %>
           <.link href={~p"/feed"} class="hover:text-base-content transition-colors tracking-wide">
@@ -99,8 +100,8 @@ defmodule TldrWeb.Layouts do
       </nav>
     </header>
 
-    <main class="relative px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl space-y-4">
+    <main class={["relative px-4 sm:px-6 lg:px-8", @class]}>
+      <div class="mx-auto max-w-4xl space-y-4">
         {render_slot(@inner_block)}
       </div>
     </main>

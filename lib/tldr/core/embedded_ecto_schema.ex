@@ -8,6 +8,8 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
       use Ecto.Schema
       import Ecto.Changeset
 
+      require Logger
+
       def changeset(module, params) do
         module
         |> cast(params, __cast_fields__(module.__struct__))
@@ -65,7 +67,10 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
         Enum.reduce(enum, [], fn d, acc ->
           case apply(d) do
             {:ok, value} -> [value | acc]
-            {:error, _} -> acc
+            {:error, error} ->
+              Logger.error("Error applying #{inspect(d)}")
+              Logger.error("#{inspect(error)}")
+              acc
           end
         end)
       end

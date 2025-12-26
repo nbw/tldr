@@ -8,5 +8,6 @@ defmodule Tldr.Feed.Schema.IndexItem do
     field :photo, :string
     field :url, :string
     field :metadata, :map
+    field :source, :string
   end
 end

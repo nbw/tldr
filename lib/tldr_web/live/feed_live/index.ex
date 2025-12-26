@@ -8,10 +8,8 @@ defmodule TldrWeb.FeedLive.Index do
   @impl true
   def render(assigns) do
     ~H"""
-    <Layouts.app flash={@flash} current_scope={@current_scope}>
-      <.header>
-        Feed
-      </.header>
+    <Layouts.app class="bg-mesh" flash={@flash} current_scope={@current_scope}>
+      <.logo />
       <.feed_list items={@items} />
     </Layouts.app>
     """
@@ -38,6 +36,6 @@ defmodule TldrWeb.FeedLive.Index do
   defp list_feed_items(recipes) do
     recipes
     |> Enum.flat_map(&Tldr.Feed.cook_recipe/1)
-    |> Enum.sort_by(& &1.date, {:desc, Date})
+    |> Enum.sort_by(& &1.date, {:desc, DateTime})
   end
 end

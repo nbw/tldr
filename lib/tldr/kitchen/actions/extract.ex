@@ -23,15 +23,44 @@ defmodule Tldr.Kitchen.Actions.Extract do
     end)
   end
 
-  def execute(%Step{actor: %__MODULE__{} = action}, input) when is_map(input) do
-    Enum.reduce_while(action.fields, {:ok, %{}}, fn {k, v}, {:ok, acc} ->
-      case Warpath.query(input, v) do
-        {:ok, value} -> {:cont, {:ok, Map.put(acc, k, value)}}
-        {:error, reason} -> {:halt, {:error, reason}}
+  def execute(%Step{actor: %__MODULE__{}} = step, input) when is_map(input) do
+    with {:ok, step, input} <- maybe_apply_index(step, input) do
+      extract(step.actor.fields, input)
+    end
+  end
+
+  defp maybe_apply_index(
+         %Step{actor: %__MODULE__{fields: %{"_index" => _} = fields}} = step,
+         input
+       ) do
+    {index_field, other_fields} = Map.split(fields, ["_index"])
+
+    with {:ok, new_input} <- extract(index_field, input) do
+      {:ok, %{step | actor: %__MODULE__{fields: other_fields}}, new_input}
+    end
+  end
+
+  defp maybe_apply_index(step, input) do
+    {:ok, step, input}
+  end
+
+  defp extract(fields, input) when map_size(fields) == 0 do
+    {:ok, input}
+  end
+
+  defp extract(fields, input) do
+    Enum.reduce_while(
+      fields,
+      {:ok, %{}},
+      fn {k, v}, {:ok, acc} ->
+        case Warpath.query(input, v) do
+          {:ok, value} -> {:cont, {:ok, Map.put(acc, k, value)}}
+          {:error, reason} -> {:halt, {:error, reason}}
+        end
       end
-    end)
+    )
     |> case do
-      {:ok, %{"_index" => result}} when is_list(result) -> {:ok, result}
+      {:ok, %{"_index" => result}} -> {:ok, result}
       {:ok, result} -> {:ok, result}
       {:error, reason} -> {:error, reason}
     end

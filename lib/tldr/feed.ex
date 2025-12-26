@@ -6,7 +6,11 @@ defmodule Tldr.Feed do
   alias Tldr.Feed.Schema.IndexItem
 
   def cook_recipe(%Recipe{} = recipe) do
-    with {:ok, items} <- Tldr.Kitchen.Chef.cook(recipe) do
+    with {:ok, items} <- Chef.cook(recipe) do
+      items = Enum.map(items, fn item ->
+        Map.put(item, "source", recipe.name)
+      end)
+
       IndexItem.map_apply(items)
     end
   end

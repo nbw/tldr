@@ -31,6 +31,20 @@ defmodule TldrWeb.CoreComponents do
 
   alias Phoenix.LiveView.JS
 
+  attr :class, :string, default: ""
+  def logo(assigns) do
+    ~H"""
+    <.link navigate="/">
+      <div class={["logo text-[3rem] sm:text-[5rem] flex gap-1 justify-center pt-6 text-base-content/80 hover:text-base-content transition-colors", @class]}>
+        <div class="hover:-translate-y-1 duration-150 ease-out">T</div>
+        <div class="hover:-translate-y-1 duration-150 ease-out">L</div>
+        <div class="hover:-translate-y-1 duration-150 ease-out">D</div>
+        <div class="hover:-translate-y-1 duration-150 ease-out">R</div>
+      </div>
+    </.link>
+    """
+  end
+
   @doc """
   Renders flash notices.
 

@@ -5,7 +5,6 @@ defmodule TldrWeb.RecipeLive.Form do
 
   alias Tldr.Kitchen
   alias Tldr.Kitchen.Chef
-  alias Tldr.Core
   alias Tldr.Kitchen.Step
   alias Tldr.Kitchen.Recipe
 
@@ -228,7 +227,6 @@ defmodule TldrWeb.RecipeLive.Form do
     recipe =
       current_scope
       |> Kitchen.get_recipe!(id)
-      |> dbg
       |> FormHelpers.decode_params_for_form()
 
     if connected?(socket) do

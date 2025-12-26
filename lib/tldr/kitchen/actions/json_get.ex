@@ -4,6 +4,7 @@ defmodule Tldr.Kitchen.Actions.JsonGet do
   @behaviour Tldr.Kitchen.Action
 
   alias Tldr.Kitchen.Step
+  alias Tldr.Core.HttpClient
 
   use Tldr.Core.EmbeddedEctoSchema
 
@@ -31,7 +32,7 @@ defmodule Tldr.Kitchen.Actions.JsonGet do
         action.url
       end
 
-    case Req.get(url) do
+    case HttpClient.get_cached(url) do
       {:ok, response} -> {:ok, response.body}
       {:error, error} -> {:error, error}
     end

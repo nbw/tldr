@@ -16,6 +16,7 @@ defmodule Tldr.Application do
        repos: Application.fetch_env!(:tldr, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:tldr, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Tldr.PubSub},
+      {Cachex, [:tldr]},
       # Start a worker by calling: Tldr.Worker.start_link(arg)
       # {Tldr.Worker, arg},
       # Start to serve requests, typically the last entry

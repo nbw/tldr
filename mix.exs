@@ -70,7 +70,8 @@ defmodule Tldr.MixProject do
       {:fast_rss, "~> 0.5.0"},
       {:timex, "~> 3.7"},
       {:warpath, "~> 0.6.3"},
-      {:langchain, "~> 0.4.0"}
+      {:langchain, "~> 0.4.0"},
+      {:cachex, "~> 4.0"}
     ]
   end
 

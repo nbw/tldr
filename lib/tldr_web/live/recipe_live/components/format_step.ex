@@ -7,7 +7,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatStep do
 
   def step_params_inputs(%{action: "format"} = assigns) do
     ~H"""
-    <div class="bg-gray-50 p-3 rounded">
+    <div class="p-3 rounded">
       <p class="text-sm text-base-content/70 mb-3">
         Format the input map using functions for each field. If a function isn't present the original value is used.
       </p>

@@ -33,4 +33,19 @@ defmodule Tldr.Core.DateTime do
   def parse_strftime(date_string, format) do
     Timex.parse(date_string, format, :strftime)
   end
+
+  @doc """
+  Returns a human-readable relative time string like "1s", "5m", "4h", "3d".
+  """
+  def time_since(datetime) do
+    now = Timex.now()
+    diff_seconds = Timex.diff(now, datetime, :seconds)
+
+    cond do
+      diff_seconds < 60 -> "#{diff_seconds}s"
+      diff_seconds < 3600 -> "#{div(diff_seconds, 60)}m"
+      diff_seconds < 86400 -> "#{div(diff_seconds, 3600)}h"
+      true -> "#{div(diff_seconds, 86400)}d"
+    end
+  end
 end
