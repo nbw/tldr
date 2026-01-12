@@ -1,11 +1,13 @@
-defmodule TldrWeb.RecipeLive.Components.ExtractStep do
+defmodule TldrWeb.RecipeLive.Components.FormatterStep do
   use TldrWeb, :html
+
+  use TldrWeb.RecipeLive.Components.StepComponent
 
   alias Tldr.Core
 
   import TldrWeb.RecipeLive.Components.Helpers
 
-  def step_params_inputs(%{action: "extract"} = assigns) do
+  def step_params_inputs(%{action: "formatter"} = assigns) do
     ~H"""
     <div class="p-3 rounded">
       <p class="text-sm text-base-content/70 mb-3">
@@ -34,6 +36,7 @@ defmodule TldrWeb.RecipeLive.Components.ExtractStep do
                 class="flex-1 px-2 py-1 border border-gray-300/50 rounded text-sm"
               />
               <button
+                :if={!@locked}
                 type="button"
                 phx-click="step-extract:remove_extract_field"
                 phx-value-id={step_id(@step_form)}
@@ -48,20 +51,20 @@ defmodule TldrWeb.RecipeLive.Components.ExtractStep do
       </div>
 
       <button
+        :if={!@locked}
         type="button"
-        phx-click="step-extract:add_extract_field"
+        phx-click="step-formatter:add_formatter_field"
         phx-value-id={step_id(@step_form)}
         phx-value-index={step_index(@step_form)}
         class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 bg-gray-300/50 rounded p-2 text-gray-700 text-center text-sm hover:bg-gray-300/60"
       >
         <.icon name="hero-plus-circle" class="w-6 h-6" /> Add Field
-
       </button>
     </div>
     """
   end
 
-  def handle_event("add_extract_field", %{"id" => id}, socket) do
+  def handle_event("add_formatter_field", %{"id" => id}, socket) do
     changeset = socket.assigns.form.source
 
     steps =
@@ -72,11 +75,7 @@ defmodule TldrWeb.RecipeLive.Components.ExtractStep do
 
     step = Enum.at(steps, step_index)
 
-    dbg(step)
-
     current_fields = (step.params || %{})["fields"] || %{}
-
-    dbg(current_fields)
 
     # Add a new empty field entry - use indexed structure
     new_idx = map_size(current_fields)
@@ -103,7 +102,7 @@ defmodule TldrWeb.RecipeLive.Components.ExtractStep do
 
     step = Enum.at(steps, step_index)
 
-    current_fields = ((step.params || %{})["fields"] || %{})
+    current_fields = (step.params || %{})["fields"] || %{}
 
     updated_fields = Map.delete(current_fields, idx)
 

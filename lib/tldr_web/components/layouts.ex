@@ -11,6 +11,48 @@ defmodule TldrWeb.Layouts do
   # and other static content.
   embed_templates "layouts/*"
 
+  def navbar(assigns) do
+    ~H"""
+    <nav class="flex items-center justify-end gap-6 text-sm text-base-content/60">
+      <%= if @current_scope do %>
+        <.link href={~p"/feed"} class="hover:text-base-content transition-colors tracking-wide">
+          Feed
+        </.link>
+        <.link href={~p"/recipes"} class="hover:text-base-content transition-colors tracking-wide">
+          Recipes
+        </.link>
+        <.link
+          href={~p"/users/settings"}
+          class="hover:text-base-content transition-colors tracking-wide"
+        >
+          Settings
+        </.link>
+        <.link
+          href={~p"/users/log-out"}
+          method="delete"
+          class="hover:text-base-content transition-colors tracking-wide"
+        >
+          Log out
+        </.link>
+      <% else %>
+        <.link
+          href={~p"/users/register"}
+          class="hover:text-base-content transition-colors tracking-wide"
+        >
+          Register
+        </.link>
+        <.link
+          href={~p"/users/log-in"}
+          class="hover:text-base-content transition-colors tracking-wide"
+        >
+          Log in
+        </.link>
+      <% end %>
+      <.theme_toggle />
+    </nav>
+    """
+  end
+
   @doc """
   Renders your app layout.
 
@@ -36,30 +78,7 @@ defmodule TldrWeb.Layouts do
   def landing(assigns) do
     ~H"""
     <header class="px-4 sm:px-6 lg:px-8 py-3">
-      <nav class="flex items-center justify-end gap-6 text-sm text-base-content/60">
-        <%= if @current_scope do %>
-          <.link href={~p"/feed"} class="hover:text-base-content transition-colors tracking-wide">
-            Feed
-          </.link>
-          <.link href={~p"/recipes"} class="hover:text-base-content transition-colors tracking-wide">
-            Recipes
-          </.link>
-          <.link href={~p"/users/settings"} class="hover:text-base-content transition-colors tracking-wide">
-            Settings
-          </.link>
-          <.link href={~p"/users/log-out"} method="delete" class="hover:text-base-content transition-colors tracking-wide">
-            Log out
-          </.link>
-        <% else %>
-          <.link href={~p"/users/register"} class="hover:text-base-content transition-colors tracking-wide">
-            Register
-          </.link>
-          <.link href={~p"/users/log-in"} class="hover:text-base-content transition-colors tracking-wide">
-            Log in
-          </.link>
-        <% end %>
-        <.theme_toggle />
-      </nav>
+      <.navbar current_scope={@current_scope} />
     </header>
 
     <main class="relative">
@@ -70,40 +89,24 @@ defmodule TldrWeb.Layouts do
     """
   end
 
-  attr :class, :string, default: ""
+  attr :flash, :map, required: true, doc: "the map of flash messages"
+
+  attr :current_scope, :map,
+    default: nil,
+    doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
+
+  slot :inner_block, required: true
+  attr :class, :string, default: "mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"
+  attr :max_width, :string, default: "max-w-4xl"
+
   def app(assigns) do
     ~H"""
     <header class={["px-4 sm:px-6 lg:px-8 py-3", @class]}>
-      <nav class="flex items-center justify-end gap-6 text-sm text-base-content/60">
-        <%= if @current_scope do %>
-          <.link href={~p"/feed"} class="hover:text-base-content transition-colors tracking-wide">
-            Feed
-          </.link>
-          <.link href={~p"/recipes"} class="hover:text-base-content transition-colors tracking-wide">
-            Recipes
-          </.link>
-          <.link href={~p"/users/settings"} class="hover:text-base-content transition-colors tracking-wide">
-            Settings
-          </.link>
-          <.link href={~p"/users/log-out"} method="delete" class="hover:text-base-content transition-colors tracking-wide">
-            Log out
-          </.link>
-        <% else %>
-          <.link href={~p"/users/register"} class="hover:text-base-content transition-colors tracking-wide">
-            Register
-          </.link>
-          <.link href={~p"/users/log-in"} class="hover:text-base-content transition-colors tracking-wide">
-            Log in
-          </.link>
-        <% end %>
-        <.theme_toggle />
-      </nav>
+      <.navbar current_scope={@current_scope} />
     </header>
 
-    <main class={["relative px-4 sm:px-6 lg:px-8", @class]}>
-      <div class="mx-auto max-w-4xl space-y-4">
-        {render_slot(@inner_block)}
-      </div>
+    <main class={["relative", @class]}>
+      {render_slot(@inner_block)}
     </main>
 
     <.flash_group flash={@flash} />
@@ -168,7 +171,10 @@ defmodule TldrWeb.Layouts do
         phx-click={JS.dispatch("phx:set-theme")}
         data-phx-theme="system"
       >
-        <.icon name="hero-computer-desktop-micro" class="size-3.5 opacity-50 hover:opacity-100 transition-opacity" />
+        <.icon
+          name="hero-computer-desktop-micro"
+          class="size-3.5 opacity-50 hover:opacity-100 transition-opacity"
+        />
       </button>
 
       <button
@@ -184,7 +190,10 @@ defmodule TldrWeb.Layouts do
         phx-click={JS.dispatch("phx:set-theme")}
         data-phx-theme="dark"
       >
-        <.icon name="hero-moon-micro" class="size-3.5 opacity-50 hover:opacity-100 transition-opacity" />
+        <.icon
+          name="hero-moon-micro"
+          class="size-3.5 opacity-50 hover:opacity-100 transition-opacity"
+        />
       </button>
     </div>
     """

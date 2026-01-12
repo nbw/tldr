@@ -7,6 +7,7 @@ defmodule Tldr.Kitchen do
   alias Tldr.Repo
 
   alias Tldr.Kitchen.Recipe
+  alias Tldr.Kitchen.Step
   alias Tldr.Accounts.Scope
 
   @doc """
@@ -143,5 +144,64 @@ defmodule Tldr.Kitchen do
     true = recipe.user_id == scope.user.id
 
     Recipe.changeset(recipe, attrs, scope)
+  end
+
+  import Tldr.Kitchen.Recipe, only: [json?: 1, rss?: 1]
+
+  def default_steps(type) when json?(type) do
+    [
+      %Step{
+        id: Ecto.UUID.generate(),
+        index: 0,
+        action: "api",
+        title: "API URL",
+        params: %{
+          url: "",
+          method: "GET"
+        },
+        locked: true
+      },
+      %Step{
+        id: Ecto.UUID.generate(),
+        index: -1,
+        action: "formatter",
+        title: "Feed Item",
+        params: %{
+          fields: %{
+            title: "",
+            url: "",
+            date: nil
+          }
+        },
+        locked: true
+      }
+    ]
+  end
+
+  def default_steps(type) when rss?(type) do
+    [
+      %Step{
+        id: Ecto.UUID.generate(),
+        index: 0,
+        action: "api",
+        title: "RSS Feed URL",
+        params: %{
+          url: "",
+          method: "GET"
+        },
+        locked: true
+      },
+      %Step{
+        id: Ecto.UUID.generate(),
+        index: 1,
+        action: "rss",
+        title: "RSS Parser",
+        locked: true
+      }
+    ]
+  end
+
+  def default_steps(_) do
+    []
   end
 end

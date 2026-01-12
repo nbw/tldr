@@ -55,4 +55,14 @@ defmodule Tldr.DataCase do
       end)
     end)
   end
+
+  def load_fixture(file_name) do
+    file = File.read!("test/support/fixtures/#{file_name}")
+
+    if String.ends_with?(file_name, ".json") do
+      Jason.decode!(file)
+    else
+      file
+    end
+  end
 end

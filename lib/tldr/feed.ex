@@ -3,15 +3,20 @@ defmodule Tldr.Feed do
 
   alias Tldr.Kitchen.Recipe
   alias Tldr.Kitchen.Chef
-  alias Tldr.Feed.Schema.IndexItem
 
   def cook_recipe(%Recipe{} = recipe) do
-    with {:ok, items} <- Chef.cook(recipe) do
-      items = Enum.map(items, fn item ->
-        Map.put(item, "source", recipe.name)
-      end)
+    with {:ok, result} <- Chef.cook(recipe) do
+      cond do
+        is_list(result) ->
+          Enum.map(result, &Tldr.Feed.FeedProtocol.apply/1)
 
-      IndexItem.map_apply(items)
+        result ->
+          Tldr.Feed.FeedProtocol.apply(result)
+      end
+
+      # |> Enum.map(fn item ->
+      #   Map.put(item, "source", recipe.name)
+      # end)
     end
   end
 end

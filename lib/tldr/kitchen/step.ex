@@ -1,23 +1,32 @@
 defmodule Tldr.Kitchen.Step do
   use Tldr.Core.EmbeddedEctoSchema
 
+  @derive {JSON.Encoder,
+           only: [
+             :id,
+             :action,
+             :title,
+             :locked,
+             :index,
+             :params
+           ]}
   embedded_schema do
     field :action, :string
     field :title, :string
-    field :description, :string
-    field :params, :map
+    field :locked, :boolean, default: false
+    field :index, :integer, default: 0
+    field :params, :map, default: %{}
+
     field :actor, :any, virtual: true
     field :hydrate, :boolean, default: false, virtual: true
-
-    embeds_many :steps, Tldr.Kitchen.Step
   end
 
   @type t :: %__MODULE__{
           action: String.t(),
           title: String.t(),
-          description: String.t(),
+          actor: any(),
           params: map() | struct(),
-          steps: list(__MODULE__.t())
+          locked: boolean()
         }
 
   def changeset(module, attrs) do
@@ -33,7 +42,7 @@ defmodule Tldr.Kitchen.Step do
         changeset
 
       action ->
-        params = Map.get(attrs, :params) || %{}
+        params = get_params(attrs)
         module = Module.concat([Tldr.Kitchen.Actions, Macro.camelize(action)])
 
         case module.apply(params) do
@@ -61,9 +70,13 @@ defmodule Tldr.Kitchen.Step do
 
   def hydrate(%__MODULE__{hydrate: false} = step) do
     with {:ok, step} <- apply(step) do
-      %{step | steps: hydrate(step.steps), hydrate: true}
+      %{step | hydrate: true}
     end
   end
 
   def hydrate(%__MODULE__{} = step), do: step
+
+  defp get_params(%{"params" => params}), do: params
+  defp get_params(%{params: params}), do: params
+  defp get_params(params), do: params
 end

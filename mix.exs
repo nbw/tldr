@@ -71,7 +71,10 @@ defmodule Tldr.MixProject do
       {:timex, "~> 3.7"},
       {:warpath, "~> 0.6.3"},
       {:langchain, "~> 0.4.0"},
-      {:cachex, "~> 4.0"}
+      {:cachex, "~> 4.0"},
+
+      # Test dependencies
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 

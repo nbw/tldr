@@ -14,8 +14,7 @@
     font-style: italic;
     font-weight: 100 900;
     font-display: swap;
-    src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf")
-        format("truetype");
+    src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,7 +27,8 @@
 
 body {
     font-family: "Inter", sans-serif;
-    font-weight: 300; /* or any weight from 100-900 */
+    font-weight: 300;
+    /* or any weight from 100-900 */
 }
 
 .logo {
@@ -201,4 +201,16 @@ body {
     background-image: url("/images/background.png");
     background-repeat: repeat;
     /* background-blend-mode: lighten; */
+}
+
+.bg-pattern {
+    background-image: url("/images/bg5.png");
+    background-repeat: repeat;
+    background-blend-mode: lighten;
+    /* background-size: 35px 35px; */
+}
+
+.bg-f-grid {
+    background-image: url("/images/figmex/background_7.png");
+    background-repeat: repeat;
 }

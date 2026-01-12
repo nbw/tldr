@@ -32,10 +32,14 @@ defmodule TldrWeb.CoreComponents do
   alias Phoenix.LiveView.JS
 
   attr :class, :string, default: ""
+
   def logo(assigns) do
     ~H"""
     <.link navigate="/">
-      <div class={["logo text-[3rem] sm:text-[5rem] flex gap-1 justify-center pt-6 text-base-content/80 hover:text-base-content transition-colors", @class]}>
+      <div class={[
+        "logo text-[3rem] sm:text-[5rem] flex gap-1 justify-center pt-6 text-base-content/80 hover:text-base-content transition-colors",
+        @class
+      ]}>
         <div class="hover:-translate-y-1 duration-150 ease-out">T</div>
         <div class="hover:-translate-y-1 duration-150 ease-out">L</div>
         <div class="hover:-translate-y-1 duration-150 ease-out">D</div>
@@ -164,7 +168,7 @@ defmodule TldrWeb.CoreComponents do
   attr :type, :string,
     default: "text",
     values: ~w(checkbox color date datetime-local email file month number password
-               search select tel text textarea time url week)
+               search select tel text textarea time url week hidden)
 
   attr :field, Phoenix.HTML.FormField,
     doc: "a form field struct retrieved from the form, for example: @form[:email]"
@@ -255,6 +259,25 @@ defmodule TldrWeb.CoreComponents do
           {@rest}
         >{Phoenix.HTML.Form.normalize_value("textarea", @value)}</textarea>
       </label>
+      <.error :for={msg <- @errors}>{msg}</.error>
+    </div>
+    """
+  end
+
+  def input(%{type: "hidden"} = assigns) do
+    ~H"""
+    <div>
+      <input
+        type={@type}
+        name={@name}
+        id={@id}
+        value={Phoenix.HTML.Form.normalize_value(@type, @value)}
+        class={[
+          @class || "w-full input hidden",
+          @errors != [] && (@error_class || "input-error")
+        ]}
+        {@rest}
+      />
       <.error :for={msg <- @errors}>{msg}</.error>
     </div>
     """
@@ -430,6 +453,16 @@ defmodule TldrWeb.CoreComponents do
   def icon(%{name: "hero-" <> _} = assigns) do
     ~H"""
     <span class={[@name, @class]} />
+    """
+  end
+
+  attr :color, :string, default: "bg-base-content"
+  attr :width, :string, default: "w-2"
+  attr :height, :string, default: "h-2"
+
+  def square(assigns) do
+    ~H"""
+    <div class={[@width, @height, @color]}></div>
     """
   end
 

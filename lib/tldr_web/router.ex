@@ -71,9 +71,10 @@ defmodule TldrWeb.Router do
       live "/feed", FeedLive.Index, :index
 
       live "/recipes", RecipeLive.Index, :index
-      live "/recipes/new", RecipeLive.Form, :new
+      live "/recipes/new", RecipeLive.New, :new
       live "/recipes/:id", RecipeLive.Show, :show
-      live "/recipes/:id/edit", RecipeLive.Form, :edit
+      live "/recipes/:id/edit", RecipeLive.Edit, :edit
+      live "/recipes/:id/chat", RecipeLive.Chat, :chat
     end
 
     post "/users/log-in", UserSessionController, :create

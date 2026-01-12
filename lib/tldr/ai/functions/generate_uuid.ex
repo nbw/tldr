@@ -6,15 +6,23 @@ defmodule Tldr.AI.Functions.GenerateUUID do
   def new() do
     Function.new!(%{
       name: "generate_uuid",
-      description: "Generate a new UUID",
+      description:
+        "Generate one more more new UUIDs. Useful for creating unique IDs for new steps.",
       parameters_schema: %{
         type: "object",
-        properties: %{},
+        properties: %{
+          count: %{
+            type: "integer",
+            description: "Number of UUIDs to generate",
+            default: 1
+          }
+        },
         required: []
       },
-      function: fn _, _context ->
-        Logger.debug("Generating UUID...")
-        {:ok, Ecto.UUID.generate()}
+      function: fn %{"count" => count}, _context ->
+        Logger.debug("Generating #{count} UUIDs...")
+        uuids = Enum.map(1..count, fn _ -> Ecto.UUID.generate() end)
+        {:ok, JSON.encode!(uuids)}
       end
     })
   end

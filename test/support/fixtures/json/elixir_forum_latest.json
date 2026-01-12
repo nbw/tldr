@@ -1,0 +1,2585 @@
+{
+    "users": [
+        {
+            "id": 12411,
+            "username": "Elixir",
+            "name": "Elixir Release News",
+            "avatar_template": "/user_avatar/elixirforum.com/elixir/{size}/15419_2.png",
+            "primary_group_name": "Elixir-Core-Team",
+            "flair_name": "Elixir-Core-Team",
+            "flair_url": "/uploads/default/original/2X/b/bd71e4f38addd2e93ec1eba0667e332115b01074.png",
+            "flair_bg_color": "DDC6E8",
+            "flair_group_id": 42,
+            "trust_level": 4
+        },
+        {
+            "id": 6,
+            "username": "elixirforum",
+            "name": "Elixir Forum",
+            "avatar_template": "/user_avatar/elixirforum.com/elixirforum/{size}/169_2.png",
+            "admin": true,
+            "trust_level": 4
+        },
+        {
+            "id": 15128,
+            "username": "maltoe",
+            "name": "Malte Rohde",
+            "avatar_template": "/user_avatar/elixirforum.com/maltoe/{size}/18436_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 11140,
+            "username": "egze",
+            "name": "Aleksandr Lossenko",
+            "avatar_template": "/user_avatar/elixirforum.com/egze/{size}/13522_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 3563,
+            "username": "shotleybuilder",
+            "name": "Jason",
+            "avatar_template": "/user_avatar/elixirforum.com/shotleybuilder/{size}/3642_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 15335,
+            "username": "silverdr",
+            "name": "Patrycjusz Łogiewa",
+            "avatar_template": "/user_avatar/elixirforum.com/silverdr/{size}/23771_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 12974,
+            "username": "DaAnalyst",
+            "name": "",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/d/278dde/{size}.png",
+            "trust_level": 2
+        },
+        {
+            "id": 20762,
+            "username": "CodeSync",
+            "name": null,
+            "avatar_template": "/user_avatar/elixirforum.com/codesync/{size}/25587_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 18489,
+            "username": "marcandre",
+            "name": "Marc-André Lafortune",
+            "avatar_template": "/user_avatar/elixirforum.com/marcandre/{size}/31790_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 22263,
+            "username": "vanderhoop",
+            "name": "Travis Vander Hoop",
+            "avatar_template": "/user_avatar/elixirforum.com/vanderhoop/{size}/33467_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2331,
+            "username": "dimitarvp",
+            "name": "Dimitar Panayotov",
+            "avatar_template": "/user_avatar/elixirforum.com/dimitarvp/{size}/38664_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 703,
+            "username": "josevalim",
+            "name": "José Valim",
+            "avatar_template": "/user_avatar/elixirforum.com/josevalim/{size}/1787_2.png",
+            "primary_group_name": "livebook_core_team",
+            "flair_name": "Elixir-Core-Team",
+            "flair_url": "/uploads/default/original/2X/b/bd71e4f38addd2e93ec1eba0667e332115b01074.png",
+            "flair_bg_color": "DDC6E8",
+            "flair_group_id": 42,
+            "admin": true,
+            "trust_level": 3
+        },
+        {
+            "id": 182,
+            "username": "e.fu",
+            "name": "E.FU",
+            "avatar_template": "/user_avatar/elixirforum.com/e.fu/{size}/369_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 31603,
+            "username": "c20020207",
+            "name": "Jimmy Qiu",
+            "avatar_template": "/user_avatar/elixirforum.com/c20020207/{size}/39723_2.png",
+            "trust_level": 0
+        },
+        {
+            "id": 14782,
+            "username": "jimsynz",
+            "name": "James Harton",
+            "avatar_template": "/user_avatar/elixirforum.com/jimsynz/{size}/39319_2.png",
+            "primary_group_name": "Ash-Core-Team",
+            "flair_name": "Ash-Core-Team",
+            "flair_url": "/uploads/default/original/3X/b/d/bd4df8c941edb7234f81e0197333a4ea7eb60116.png",
+            "flair_bg_color": "fff",
+            "flair_group_id": 61,
+            "trust_level": 2
+        },
+        {
+            "id": 1188,
+            "username": "kip",
+            "name": "",
+            "avatar_template": "/user_avatar/elixirforum.com/kip/{size}/1440_2.png",
+            "moderator": true,
+            "trust_level": 2
+        },
+        {
+            "id": 31588,
+            "username": "John-BoothIQ",
+            "name": "John @ BoothIQ",
+            "avatar_template": "/user_avatar/elixirforum.com/john-boothiq/{size}/39714_2.png",
+            "trust_level": 0
+        },
+        {
+            "id": 19136,
+            "username": "tozz",
+            "name": "Erik",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a8b319/{size}.png",
+            "trust_level": 2
+        },
+        {
+            "id": 28667,
+            "username": "jam",
+            "name": null,
+            "avatar_template": "/user_avatar/elixirforum.com/jam/{size}/36266_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 24872,
+            "username": "garrison",
+            "name": null,
+            "avatar_template": "/letter_avatar_proxy/v4/letter/g/3bc359/{size}.png",
+            "trust_level": 3
+        },
+        {
+            "id": 69,
+            "username": "gtcode",
+            "name": "NSHkr",
+            "avatar_template": "/user_avatar/elixirforum.com/gtcode/{size}/234_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 25162,
+            "username": "yosalama",
+            "name": "Youssif Salama",
+            "avatar_template": "/user_avatar/elixirforum.com/yosalama/{size}/32002_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 25336,
+            "username": "rhcarvalho",
+            "name": "Rodolfo Carvalho",
+            "avatar_template": "/user_avatar/elixirforum.com/rhcarvalho/{size}/32243_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 14800,
+            "username": "felix-starman",
+            "name": "Peter Mueller",
+            "avatar_template": "/user_avatar/elixirforum.com/felix-starman/{size}/18051_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 21801,
+            "username": "brkn",
+            "name": "Berkan Unal",
+            "avatar_template": "/user_avatar/elixirforum.com/brkn/{size}/39704_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 19201,
+            "username": "abrookewood",
+            "name": "",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/a/b38774/{size}.png",
+            "trust_level": 2
+        },
+        {
+            "id": 17515,
+            "username": "f0rest8",
+            "name": "F0rest8",
+            "avatar_template": "/user_avatar/elixirforum.com/f0rest8/{size}/38551_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 11631,
+            "username": "lud",
+            "name": "Lud",
+            "avatar_template": "/user_avatar/elixirforum.com/lud/{size}/14382_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 7357,
+            "username": "sezaru",
+            "name": "Eduardo B.",
+            "avatar_template": "/user_avatar/elixirforum.com/sezaru/{size}/36113_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 4246,
+            "username": "Schultzer",
+            "name": "Benjamin Schultzer",
+            "avatar_template": "/user_avatar/elixirforum.com/schultzer/{size}/4339_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 5706,
+            "username": "zachdaniel",
+            "name": "Zach Daniel",
+            "avatar_template": "/user_avatar/elixirforum.com/zachdaniel/{size}/31980_2.png",
+            "primary_group_name": "Ash-Core-Team",
+            "flair_name": "Ash-Core-Team",
+            "flair_url": "/uploads/default/original/3X/b/d/bd4df8c941edb7234f81e0197333a4ea7eb60116.png",
+            "flair_bg_color": "fff",
+            "flair_group_id": 61,
+            "trust_level": 2
+        },
+        {
+            "id": 31258,
+            "username": "user20251023",
+            "name": "",
+            "avatar_template": "/user_avatar/elixirforum.com/user20251023/{size}/39338_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 1,
+            "username": "AstonJ",
+            "name": "Aston",
+            "avatar_template": "/user_avatar/elixirforum.com/astonj/{size}/15_2.png",
+            "admin": true,
+            "moderator": true,
+            "trust_level": 3
+        },
+        {
+            "id": 25998,
+            "username": "stryderjzw",
+            "name": "Justin Wong",
+            "avatar_template": "/user_avatar/elixirforum.com/stryderjzw/{size}/38601_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 12171,
+            "username": "Lucassifoni",
+            "name": "Lucas Sifoni",
+            "avatar_template": "/user_avatar/elixirforum.com/lucassifoni/{size}/39057_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 16512,
+            "username": "derek-zhou",
+            "name": "Derek Zhou",
+            "avatar_template": "/user_avatar/elixirforum.com/derek-zhou/{size}/19943_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 16411,
+            "username": "sodapopcan",
+            "name": "Andrew Haust",
+            "avatar_template": "/user_avatar/elixirforum.com/sodapopcan/{size}/34668_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 31299,
+            "username": "zteln",
+            "name": null,
+            "avatar_template": "/letter_avatar_proxy/v4/letter/z/898d66/{size}.png",
+            "trust_level": 1
+        },
+        {
+            "id": 8009,
+            "username": "lucaong",
+            "name": "Luca",
+            "avatar_template": "/user_avatar/elixirforum.com/lucaong/{size}/21794_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 26726,
+            "username": "Asd",
+            "name": "",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/a/c68b51/{size}.png",
+            "trust_level": 2
+        },
+        {
+            "id": 1118,
+            "username": "Eiji",
+            "name": "Tomasz Sulima",
+            "avatar_template": "/user_avatar/elixirforum.com/eiji/{size}/36743_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 30204,
+            "username": "spicychickensauce",
+            "name": "Spicychickensauce",
+            "avatar_template": "/user_avatar/elixirforum.com/spicychickensauce/{size}/38169_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2541,
+            "username": "brainlid",
+            "name": "Mark Ericksen",
+            "avatar_template": "/user_avatar/elixirforum.com/brainlid/{size}/20975_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 9516,
+            "username": "mat-hek",
+            "name": "Mateusz Front",
+            "avatar_template": "/user_avatar/elixirforum.com/mat-hek/{size}/38168_2.png",
+            "primary_group_name": "Membrane-Core-Team",
+            "flair_name": "Membrane-Core-Team",
+            "flair_url": "/uploads/default/original/3X/9/4/9479413648e39c050a8fc5054141d82b41435457.png",
+            "flair_bg_color": "A7CCE0",
+            "flair_group_id": 53,
+            "trust_level": 2
+        },
+        {
+            "id": 30333,
+            "username": "ohmyohmyohmy",
+            "name": "",
+            "avatar_template": "/user_avatar/elixirforum.com/ohmyohmyohmy/{size}/38321_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 3078,
+            "username": "LostKobrakai",
+            "name": "Benjamin Milde",
+            "avatar_template": "/user_avatar/elixirforum.com/lostkobrakai/{size}/3072_2.png",
+            "moderator": true,
+            "trust_level": 2
+        },
+        {
+            "id": 19340,
+            "username": "zhenfeng-zhu",
+            "name": "Philip",
+            "avatar_template": "/user_avatar/elixirforum.com/zhenfeng-zhu/{size}/23576_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 8105,
+            "username": "tfwright",
+            "name": "T  Floyd Wright",
+            "avatar_template": "/user_avatar/elixirforum.com/tfwright/{size}/20299_2.png",
+            "trust_level": 3
+        },
+        {
+            "id": 31341,
+            "username": "GrammAcc",
+            "name": "Dalton Lang",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/g/9dc877/{size}.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2851,
+            "username": "swelham",
+            "name": "Stuart Welham",
+            "avatar_template": "/user_avatar/elixirforum.com/swelham/{size}/2768_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2347,
+            "username": "Nicd",
+            "name": "Mikko Ahlroth",
+            "avatar_template": "/user_avatar/elixirforum.com/nicd/{size}/2357_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2405,
+            "username": "davearonson",
+            "name": "Dave Aronson",
+            "avatar_template": "/user_avatar/elixirforum.com/davearonson/{size}/18913_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 29888,
+            "username": "Dmk",
+            "name": "Dylan Kenney",
+            "avatar_template": "/user_avatar/elixirforum.com/dmk/{size}/38649_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 3250,
+            "username": "wmnnd",
+            "name": "Philipp",
+            "avatar_template": "/user_avatar/elixirforum.com/wmnnd/{size}/4985_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 14923,
+            "username": "crova",
+            "name": "Thiago Ferrari",
+            "avatar_template": "/user_avatar/elixirforum.com/crova/{size}/25853_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 8319,
+            "username": "Exadra37",
+            "name": "Paulo Renato",
+            "avatar_template": "/user_avatar/elixirforum.com/exadra37/{size}/9183_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 6124,
+            "username": "maz",
+            "name": "Michael Hanna",
+            "avatar_template": "/user_avatar/elixirforum.com/maz/{size}/6075_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 21374,
+            "username": "nedem18",
+            "name": "Nadem",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/n/6de8d8/{size}.png",
+            "trust_level": 1
+        },
+        {
+            "id": 1262,
+            "username": "aseigo",
+            "name": "Aaron Seigo",
+            "avatar_template": "/user_avatar/elixirforum.com/aseigo/{size}/10674_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2534,
+            "username": "yendrisrogelio",
+            "name": "Yendris Cruz Mendoza",
+            "avatar_template": "/user_avatar/elixirforum.com/yendrisrogelio/{size}/9260_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 11135,
+            "username": "mindok",
+            "name": "MindOk",
+            "avatar_template": "/user_avatar/elixirforum.com/mindok/{size}/13538_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 28298,
+            "username": "johnsseruwagi",
+            "name": "Sseruwagi John",
+            "avatar_template": "/user_avatar/elixirforum.com/johnsseruwagi/{size}/35897_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 17720,
+            "username": "Snake-Sanders",
+            "name": "Snake Sanders",
+            "avatar_template": "/user_avatar/elixirforum.com/snake-sanders/{size}/21351_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 12791,
+            "username": "lawik",
+            "name": "Lars Wikman",
+            "avatar_template": "/user_avatar/elixirforum.com/lawik/{size}/32028_2.png",
+            "primary_group_name": "Nerves-Core-Team",
+            "flair_name": "Nerves-Core-Team",
+            "flair_url": "/uploads/default/original/3X/7/8/7850569b5bdeb0449d30954246ade303b33ad449.png",
+            "flair_bg_color": "f8f8f8",
+            "flair_group_id": 45,
+            "trust_level": 4
+        },
+        {
+            "id": 7289,
+            "username": "simpers",
+            "name": "Simon Bergström",
+            "avatar_template": "/user_avatar/elixirforum.com/simpers/{size}/13369_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 10092,
+            "username": "jakeprem",
+            "name": "Jakeprem",
+            "avatar_template": "/user_avatar/elixirforum.com/jakeprem/{size}/12018_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 30040,
+            "username": "travisgriggs",
+            "name": "Travis Griggs",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce7236/{size}.png",
+            "trust_level": 1
+        },
+        {
+            "id": 17074,
+            "username": "steffend",
+            "name": "",
+            "avatar_template": "/user_avatar/elixirforum.com/steffend/{size}/20548_2.png",
+            "primary_group_name": "Phoenix-Core-Team",
+            "flair_name": "Phoenix-Core-Team",
+            "flair_url": "/uploads/default/original/2X/6/6b7bfd72866ebb0c3ee7a5616ba7031dfe29f22b.png",
+            "flair_bg_color": "F26736",
+            "flair_group_id": 43,
+            "trust_level": 2
+        },
+        {
+            "id": 8869,
+            "username": "leifericf",
+            "name": "Leif Eric Fredheim",
+            "avatar_template": "/user_avatar/elixirforum.com/leifericf/{size}/39367_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 7147,
+            "username": "hoetmaaiers",
+            "name": "Hoetmaaiers",
+            "avatar_template": "/user_avatar/elixirforum.com/hoetmaaiers/{size}/32589_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 11317,
+            "username": "KristerV",
+            "name": "Krister Viirsaar",
+            "avatar_template": "/user_avatar/elixirforum.com/kristerv/{size}/13808_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 9214,
+            "username": "chgeuer",
+            "name": "Christian Geuer Pollmann",
+            "avatar_template": "/user_avatar/elixirforum.com/chgeuer/{size}/10510_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 26935,
+            "username": "jan-mb-me",
+            "name": "Jan",
+            "avatar_template": "/user_avatar/elixirforum.com/jan-mb-me/{size}/34448_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 24221,
+            "username": "guess",
+            "name": "Steve Strates",
+            "avatar_template": "/user_avatar/elixirforum.com/guess/{size}/30671_2.png",
+            "trust_level": 1
+        },
+        {
+            "id": 11238,
+            "username": "ostap",
+            "name": "Ostap Brehin",
+            "avatar_template": "/user_avatar/elixirforum.com/ostap/{size}/37746_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 2273,
+            "username": "Kabie",
+            "name": "Kabie",
+            "avatar_template": "/user_avatar/elixirforum.com/kabie/{size}/2306_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 21798,
+            "username": "zachallaun",
+            "name": "Zach Allaun",
+            "avatar_template": "/user_avatar/elixirforum.com/zachallaun/{size}/29208_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 14383,
+            "username": "Gilou06",
+            "name": "Jean-yves Leseigneur",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/g/4491bb/{size}.png",
+            "trust_level": 1
+        },
+        {
+            "id": 24206,
+            "username": "Jskalc",
+            "name": "Jakub Skałecki",
+            "avatar_template": "/user_avatar/elixirforum.com/jskalc/{size}/35876_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 14851,
+            "username": "mikehostetler",
+            "name": "Mike Hostetler",
+            "avatar_template": "/user_avatar/elixirforum.com/mikehostetler/{size}/20620_2.png",
+            "trust_level": 2
+        },
+        {
+            "id": 18671,
+            "username": "ausimian",
+            "name": "",
+            "avatar_template": "/user_avatar/elixirforum.com/ausimian/{size}/22703_2.png",
+            "trust_level": 2
+        }
+    ],
+    "primary_groups": [
+        {
+            "id": 42,
+            "name": "Elixir-Core-Team"
+        },
+        {
+            "id": 64,
+            "name": "livebook_core_team"
+        },
+        {
+            "id": 61,
+            "name": "Ash-Core-Team"
+        },
+        {
+            "id": 53,
+            "name": "Membrane-Core-Team"
+        },
+        {
+            "id": 45,
+            "name": "Nerves-Core-Team"
+        },
+        {
+            "id": 43,
+            "name": "Phoenix-Core-Team"
+        }
+    ],
+    "flair_groups": [
+        {
+            "id": 42,
+            "name": "Elixir-Core-Team",
+            "flair_url": "/uploads/default/original/2X/b/bd71e4f38addd2e93ec1eba0667e332115b01074.png",
+            "flair_bg_color": "DDC6E8",
+            "flair_color": ""
+        },
+        {
+            "id": 61,
+            "name": "Ash-Core-Team",
+            "flair_url": "/uploads/default/original/3X/b/d/bd4df8c941edb7234f81e0197333a4ea7eb60116.png",
+            "flair_bg_color": "fff",
+            "flair_color": ""
+        },
+        {
+            "id": 53,
+            "name": "Membrane-Core-Team",
+            "flair_url": "/uploads/default/original/3X/9/4/9479413648e39c050a8fc5054141d82b41435457.png",
+            "flair_bg_color": "A7CCE0",
+            "flair_color": ""
+        },
+        {
+            "id": 45,
+            "name": "Nerves-Core-Team",
+            "flair_url": "/uploads/default/original/3X/7/8/7850569b5bdeb0449d30954246ade303b33ad449.png",
+            "flair_bg_color": "f8f8f8",
+            "flair_color": ""
+        },
+        {
+            "id": 43,
+            "name": "Phoenix-Core-Team",
+            "flair_url": "/uploads/default/original/2X/6/6b7bfd72866ebb0c3ee7a5616ba7031dfe29f22b.png",
+            "flair_bg_color": "F26736",
+            "flair_color": ""
+        }
+    ],
+    "topic_list": {
+        "can_create_topic": false,
+        "more_topics_url": "/latest?no_definitions=true&page=1",
+        "per_page": 30,
+        "top_tags": [
+            "phoenix",
+            "ecto",
+            "liveview",
+            "troubleshooting",
+            "learning-elixir",
+            "deployment",
+            "erlang",
+            "testing",
+            "genserver",
+            "mix",
+            "absinthe",
+            "ash-questions",
+            "ash",
+            "via-devtalk",
+            "remote-other",
+            "otp",
+            "plug",
+            "how-to-question",
+            "macros",
+            "nerves",
+            "postgres",
+            "channels",
+            "oban",
+            "exunit",
+            "discussion",
+            "elixirconf",
+            "library",
+            "javascript",
+            "oban-questions",
+            "dialyzer",
+            "docker"
+        ],
+        "topics": [
+            {
+                "fancy_title": "Elixir v1.19.5 released",
+                "id": 73923,
+                "title": "Elixir v1.19.5 released",
+                "slug": "elixir-v1-19-5-released",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2026-01-09T11:51:39.556Z",
+                "last_posted_at": "2026-01-09T11:51:39.753Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T11:51:39.595Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": true,
+                "unpinned": null,
+                "excerpt": "1. Enhancements\nElixir\n\n[Protocol] Optimize protocol consolidation to no longer load structs\n\n2. Bug fixes\nElixir\n\n[Kernel] Fix unnecessary recompilation when dbg_callback is modified at runtime\n[Kernel] Fix parser cra&hellip;",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "elixir-release"
+                ],
+                "tags_descriptions": {},
+                "views": 298,
+                "like_count": 8,
+                "has_summary": false,
+                "last_poster_username": "elixirforum",
+                "category_id": 28,
+                "pinned_globally": true,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 12411,
+                        "primary_group_id": 42,
+                        "flair_group_id": 42
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 6,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "ChromicPDF - PDF generator",
+                "id": 29473,
+                "title": "ChromicPDF - PDF generator",
+                "slug": "chromicpdf-pdf-generator",
+                "posts_count": 64,
+                "reply_count": 42,
+                "highest_post_number": 64,
+                "image_url": null,
+                "created_at": "2020-02-28T11:11:07.580Z",
+                "last_posted_at": "2026-01-09T13:45:04.317Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T13:45:04.317Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "chromeremoteinterface",
+                    "pdf-generator",
+                    "protocols"
+                ],
+                "tags_descriptions": {},
+                "views": 10179,
+                "like_count": 74,
+                "has_summary": true,
+                "last_poster_username": "DaAnalyst",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 15128,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 11140,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 3563,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 15335,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 12974,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2026/03/23 - Code BEAM Lite Vancouver",
+                "id": 73369,
+                "title": "2026/03/23 - Code BEAM Lite Vancouver",
+                "slug": "2026-03-23-code-beam-lite-vancouver",
+                "posts_count": 7,
+                "reply_count": 1,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-11-19T07:18:07.429Z",
+                "last_posted_at": "2026-01-09T12:16:01.058Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T12:16:01.058Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "beam",
+                    "elixirconf",
+                    "erlang"
+                ],
+                "tags_descriptions": {},
+                "views": 198,
+                "like_count": 4,
+                "has_summary": false,
+                "last_poster_username": "CodeSync",
+                "category_id": 80,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 20762,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elixir 1.19 compilation performance - have you noticed a difference?",
+                "id": 73030,
+                "title": "Elixir 1.19 compilation performance - have you noticed a difference?",
+                "slug": "elixir-1-19-compilation-performance-have-you-noticed-a-difference",
+                "posts_count": 21,
+                "reply_count": 18,
+                "highest_post_number": 22,
+                "image_url": null,
+                "created_at": "2025-10-21T16:58:44.313Z",
+                "last_posted_at": "2026-01-09T12:06:25.189Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T12:06:25.189Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "compiler"
+                ],
+                "tags_descriptions": {},
+                "views": 1155,
+                "like_count": 50,
+                "has_summary": false,
+                "last_poster_username": "josevalim",
+                "category_id": 7,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 18489,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 22263,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2331,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 703,
+                        "primary_group_id": 64,
+                        "flair_group_id": 42
+                    }
+                ]
+            },
+            {
+                "fancy_title": "ExUnitJSON: AI-Friendly JSON Test Output for ExUnit  I’ve been building an Elixir library that I think could be useful to others working with AI coding assistants like Claude Code, Cursor, or similar tools.  ",
+                "id": 73919,
+                "title": "ExUnitJSON: AI-Friendly JSON Test Output for ExUnit  I’ve been building an Elixir library that I think could be useful to others working with AI coding assistants like Claude Code, Cursor, or similar tools.  ",
+                "slug": "exunitjson-ai-friendly-json-test-output-for-exunit-i-ve-been-building-an-elixir-library-that-i-think-could-be-useful-to-others-working-with-ai-coding-assistants-like-claude-code-cursor-or-similar-tools",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2026-01-09T09:15:03.058Z",
+                "last_posted_at": "2026-01-09T11:36:43.161Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T11:36:43.161Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "testing",
+                    "troubleshooting"
+                ],
+                "tags_descriptions": {},
+                "views": 27,
+                "like_count": 1,
+                "has_summary": false,
+                "last_poster_username": "e.fu",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 182,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Full Stack Engineer - InvestorHub, Melbourne, Australia, Hybrid",
+                "id": 73920,
+                "title": "Full Stack Engineer - InvestorHub, Melbourne, Australia, Hybrid",
+                "slug": "full-stack-engineer-investorhub-melbourne-australia-hybrid",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2026-01-09T09:33:14.470Z",
+                "last_posted_at": "2026-01-09T09:33:14.523Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T09:33:14.523Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "onsite"
+                ],
+                "tags_descriptions": {},
+                "views": 38,
+                "like_count": 1,
+                "has_summary": false,
+                "last_poster_username": "c20020207",
+                "category_id": 16,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 31603,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Beyond Behaviour Trees: Task Orchestration for Robotics with Reactor",
+                "id": 73916,
+                "title": "Beyond Behaviour Trees: Task Orchestration for Robotics with Reactor",
+                "slug": "beyond-behaviour-trees-task-orchestration-for-robotics-with-reactor",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2026-01-09T03:44:06.371Z",
+                "last_posted_at": "2026-01-09T06:14:57.329Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T06:14:57.329Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "beambots",
+                    "blogs-by-jimsynz",
+                    "reactor",
+                    "robotics",
+                    "robots"
+                ],
+                "tags_descriptions": {},
+                "views": 56,
+                "like_count": 6,
+                "has_summary": false,
+                "last_poster_username": "jimsynz",
+                "category_id": 60,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 14782,
+                        "primary_group_id": 61,
+                        "flair_group_id": 61
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 1188,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "150,000 Lines of Vibe Coded Elixir: The Good, The Bad, and The Ugly",
+                "id": 73899,
+                "title": "150,000 Lines of Vibe Coded Elixir: The Good, The Bad, and The Ugly",
+                "slug": "150-000-lines-of-vibe-coded-elixir-the-good-the-bad-and-the-ugly",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2026-01-07T00:42:32.043Z",
+                "last_posted_at": "2026-01-09T02:43:40.319Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T02:43:40.319Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ai",
+                    "blogs-by-john-boothiq",
+                    "claude",
+                    "via-devtalk"
+                ],
+                "tags_descriptions": {},
+                "views": 563,
+                "like_count": 25,
+                "has_summary": false,
+                "last_poster_username": "gtcode",
+                "category_id": 60,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 31588,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 19136,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 28667,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 24872,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 69,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "I built a Reddit monitoring tool with Elixir (and avoided a huge GPU bill)",
+                "id": 73878,
+                "title": "I built a Reddit monitoring tool with Elixir (and avoided a huge GPU bill)",
+                "slug": "i-built-a-reddit-monitoring-tool-with-elixir-and-avoided-a-huge-gpu-bill",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2026-01-03T21:25:03.957Z",
+                "last_posted_at": "2026-01-09T00:48:17.926Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T00:48:17.926Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "bumblebee",
+                    "deployment",
+                    "distributed-systems",
+                    "gpu",
+                    "liveview",
+                    "machine-learning",
+                    "oban",
+                    "phoenix",
+                    "tailscale"
+                ],
+                "tags_descriptions": {},
+                "views": 376,
+                "like_count": 25,
+                "has_summary": false,
+                "last_poster_username": "abrookewood",
+                "category_id": 7,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 25162,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 25336,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 14800,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 21801,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 19201,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "MOSSLET (formerly Metamorphic) Blog Posts",
+                "id": 73470,
+                "title": "MOSSLET (formerly Metamorphic) Blog Posts",
+                "slug": "mosslet-formerly-metamorphic-blog-posts",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-11-27T16:46:11.148Z",
+                "last_posted_at": "2026-01-09T00:08:15.790Z",
+                "bumped": true,
+                "bumped_at": "2026-01-09T00:08:15.790Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "blogs-by-f0rest8",
+                    "liveview",
+                    "session",
+                    "social-network"
+                ],
+                "tags_descriptions": {},
+                "views": 140,
+                "like_count": 1,
+                "has_summary": false,
+                "last_poster_username": "f0rest8",
+                "category_id": 60,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 17515,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Oaskit v0.10 – Breaking changes for the security plug",
+                "id": 73915,
+                "title": "Oaskit v0.10 – Breaking changes for the security plug",
+                "slug": "oaskit-v0-10-breaking-changes-for-the-security-plug",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2026-01-08T23:48:19.795Z",
+                "last_posted_at": "2026-01-08T23:48:19.839Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T23:48:19.839Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "oaskit",
+                    "openapi",
+                    "to-be-merged"
+                ],
+                "tags_descriptions": {},
+                "views": 30,
+                "like_count": 2,
+                "has_summary": false,
+                "last_poster_username": "lud",
+                "category_id": 153,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 11631,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Improve regex performance or temporarely disable during bulk insertion?",
+                "id": 73890,
+                "title": "Improve regex performance or temporarely disable during bulk insertion?",
+                "slug": "improve-regex-performance-or-temporarely-disable-during-bulk-insertion",
+                "posts_count": 10,
+                "reply_count": 7,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2026-01-05T19:59:41.526Z",
+                "last_posted_at": "2026-01-08T22:00:28.180Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T22:00:28.180Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ash",
+                    "ash-questions",
+                    "performance",
+                    "regex"
+                ],
+                "tags_descriptions": {},
+                "views": 146,
+                "like_count": 4,
+                "has_summary": false,
+                "last_poster_username": "user20251023",
+                "category_id": 141,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 7357,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 4246,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 1188,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 5706,
+                        "primary_group_id": 61,
+                        "flair_group_id": 61
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 31258,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Tailwind News",
+                "id": 68988,
+                "title": "Tailwind News",
+                "slug": "tailwind-news",
+                "posts_count": 16,
+                "reply_count": 10,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-01-25T02:02:40.762Z",
+                "last_posted_at": "2026-01-08T21:26:37.408Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T21:26:37.408Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "phoenix",
+                    "tailwind"
+                ],
+                "tags_descriptions": {},
+                "views": 1673,
+                "like_count": 60,
+                "has_summary": false,
+                "last_poster_username": "sodapopcan",
+                "category_id": 30,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 1,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 25998,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 12171,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 16512,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 16411,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Goblin - another embedded key-value database for Elixir",
+                "id": 73169,
+                "title": "Goblin - another embedded key-value database for Elixir",
+                "slug": "goblin-another-embedded-key-value-database-for-elixir",
+                "posts_count": 19,
+                "reply_count": 12,
+                "highest_post_number": 19,
+                "image_url": null,
+                "created_at": "2025-11-03T07:12:10.906Z",
+                "last_posted_at": "2026-01-08T16:21:32.445Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T16:21:32.445Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "database",
+                    "library"
+                ],
+                "tags_descriptions": {},
+                "views": 974,
+                "like_count": 51,
+                "has_summary": false,
+                "last_poster_username": "zteln",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 31299,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 8009,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 24872,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2331,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 26726,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elixir script file without extension is ignored by `mix format`",
+                "id": 73856,
+                "title": "Elixir script file without extension is ignored by `mix format`",
+                "slug": "elixir-script-file-without-extension-is-ignored-by-mix-format",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2026-01-02T10:20:06.404Z",
+                "last_posted_at": "2026-01-08T15:49:41.429Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T15:49:41.429Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "developer-experience",
+                    "elixir-ls",
+                    "mix-format"
+                ],
+                "tags_descriptions": {},
+                "views": 99,
+                "like_count": 1,
+                "has_summary": false,
+                "last_poster_username": "derek-zhou",
+                "category_id": 53,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 21801,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 1118,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 16512,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Ash aggregates with sqlite",
+                "id": 73912,
+                "title": "Ash aggregates with sqlite",
+                "slug": "ash-aggregates-with-sqlite",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2026-01-08T09:04:38.749Z",
+                "last_posted_at": "2026-01-08T15:22:36.426Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T15:22:36.426Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ash",
+                    "ash-sqlite",
+                    "ecto"
+                ],
+                "tags_descriptions": {},
+                "views": 69,
+                "like_count": 0,
+                "has_summary": false,
+                "last_poster_username": "spicychickensauce",
+                "category_id": 141,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 30204,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 5706,
+                        "primary_group_id": 61,
+                        "flair_group_id": 61
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Thinking Elixir 285 - From Popcorn to Robots",
+                "id": 73817,
+                "title": "Thinking Elixir 285 - From Popcorn to Robots",
+                "slug": "thinking-elixir-285-from-popcorn-to-robots",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-12-30T13:33:20.398Z",
+                "last_posted_at": "2026-01-08T15:01:28.535Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T15:01:28.535Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ai",
+                    "in-the-news",
+                    "nerves",
+                    "podcasts",
+                    "podcasts-by-brainlid",
+                    "postgres",
+                    "postgresql",
+                    "robotics",
+                    "via-devtalk",
+                    "wasm"
+                ],
+                "tags_descriptions": {},
+                "views": 105,
+                "like_count": 3,
+                "has_summary": false,
+                "last_poster_username": "mat-hek",
+                "category_id": 156,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 2541,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 9516,
+                        "primary_group_id": 53,
+                        "flair_group_id": 53
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to include {:eden, &ldquo;~&gt; 2.1&rdquo;} to latest Phoenix project?",
+                "id": 73913,
+                "title": "How to include {:eden, \"~> 2.1\"} to latest Phoenix project?",
+                "slug": "how-to-include-eden-2-1-to-latest-phoenix-project",
+                "posts_count": 5,
+                "reply_count": 0,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2026-01-08T11:25:18.311Z",
+                "last_posted_at": "2026-01-08T13:56:49.276Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T13:56:49.276Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "eden",
+                    "phoenix"
+                ],
+                "tags_descriptions": {},
+                "views": 69,
+                "like_count": 1,
+                "has_summary": false,
+                "last_poster_username": "ohmyohmyohmy",
+                "category_id": 31,
+                "pinned_globally": false,
+                "has_accepted_answer": true,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 30333,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user_id": 1118,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 3078,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Nex - 0.3.x Design Philosophy: The Evolution of Minimalism",
+                "id": 73861,
+                "title": "Nex - 0.3.x Design Philosophy: The Evolution of Minimalism",
+                "slug": "nex-0-3-x-design-philosophy-the-evolution-of-minimalism",
+                "posts_count": 31,
+                "reply_count": 24,
+                "highest_post_number": 31,
+                "image_url": null,
+                "created_at": "2026-01-02T15:48:31.691Z",
+                "last_posted_at": "2026-01-08T13:52:12.305Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T13:52:12.305Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "nex"
+                ],
+                "tags_descriptions": {},
+                "views": 775,
+                "like_count": 34,
+                "has_summary": false,
+                "last_poster_username": "derek-zhou",
+                "category_id": 153,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 19340,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 24872,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 8105,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 31341,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 16512,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What Elixir related stuff are you doing?",
+                "id": 113,
+                "title": "What Elixir related stuff are you doing?",
+                "slug": "what-elixir-related-stuff-are-you-doing",
+                "posts_count": 869,
+                "reply_count": 240,
+                "highest_post_number": 880,
+                "image_url": null,
+                "created_at": "2016-02-17T13:36:40.397Z",
+                "last_posted_at": "2026-01-08T12:45:12.409Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T12:45:12.409Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "community"
+                ],
+                "tags_descriptions": {},
+                "views": 80539,
+                "like_count": 2829,
+                "has_summary": true,
+                "last_poster_username": "Dmk",
+                "category_id": 7,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 1,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2851,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2347,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2405,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 29888,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Keila - Open Source Mailchimp Alternative Built in Elixir!",
+                "id": 37476,
+                "title": "Keila - Open Source Mailchimp Alternative Built in Elixir!",
+                "slug": "keila-open-source-mailchimp-alternative-built-in-elixir",
+                "posts_count": 32,
+                "reply_count": 16,
+                "highest_post_number": 32,
+                "image_url": null,
+                "created_at": "2021-02-11T12:29:53.132Z",
+                "last_posted_at": "2026-01-08T11:18:43.650Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T11:18:43.650Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "keila",
+                    "oban",
+                    "petal",
+                    "phoenix",
+                    "solid",
+                    "swoosh"
+                ],
+                "tags_descriptions": {},
+                "views": 6323,
+                "like_count": 144,
+                "has_summary": false,
+                "last_poster_username": "wmnnd",
+                "category_id": 7,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 3250,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 14923,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 8319,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 6124,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 21374,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "GeoSQL - spatial databases and GIS SQL functions",
+                "id": 71526,
+                "title": "GeoSQL - spatial databases and GIS SQL functions",
+                "slug": "geosql-spatial-databases-and-gis-sql-functions",
+                "posts_count": 18,
+                "reply_count": 7,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-07-02T10:04:49.764Z",
+                "last_posted_at": "2026-01-08T11:11:36.742Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T11:11:36.742Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "geosql"
+                ],
+                "tags_descriptions": {},
+                "views": 481,
+                "like_count": 59,
+                "has_summary": false,
+                "last_poster_username": "johnsseruwagi",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 1262,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2534,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 11135,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 28298,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Any tips on using Nerves and a Zigbee gateway?",
+                "id": 65027,
+                "title": "Any tips on using Nerves and a Zigbee gateway?",
+                "slug": "any-tips-on-using-nerves-and-a-zigbee-gateway",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 9,
+                "image_url": "https://elixirforum.com/uploads/default/optimized/3X/4/a/4a88421188ab8cc942d856a721dbbd1c3f880e0d_2_972x1024.jpeg",
+                "created_at": "2024-07-20T11:45:53.103Z",
+                "last_posted_at": "2026-01-08T10:59:25.145Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T10:59:25.145Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "zigbee"
+                ],
+                "tags_descriptions": {},
+                "views": 469,
+                "like_count": 10,
+                "has_summary": false,
+                "last_poster_username": "zteln",
+                "category_id": 121,
+                "pinned_globally": false,
+                "has_accepted_answer": true,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 17720,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user_id": 12791,
+                        "primary_group_id": 45,
+                        "flair_group_id": 45
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 7289,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 31299,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Add `:params` opt to JS.patch and JS.navigate, and opt to merge `phx-value-*`",
+                "id": 69743,
+                "title": "Add `:params` opt to JS.patch and JS.navigate, and opt to merge `phx-value-*`",
+                "slug": "add-params-opt-to-js-patch-and-js-navigate-and-opt-to-merge-phx-value",
+                "posts_count": 26,
+                "reply_count": 18,
+                "highest_post_number": 26,
+                "image_url": null,
+                "created_at": "2025-03-03T20:13:52.914Z",
+                "last_posted_at": "2026-01-08T10:55:23.319Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T10:55:23.319Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "liveview",
+                    "phoenix"
+                ],
+                "tags_descriptions": {},
+                "views": 609,
+                "like_count": 37,
+                "has_summary": false,
+                "last_poster_username": "steffend",
+                "category_id": 126,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 10092,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 30040,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 25336,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 12974,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 17074,
+                        "primary_group_id": 43,
+                        "flair_group_id": 43
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Anyone have any experience with Elixir on Microsoft Azure?",
+                "id": 16537,
+                "title": "Anyone have any experience with Elixir on Microsoft Azure?",
+                "slug": "anyone-have-any-experience-with-elixir-on-microsoft-azure",
+                "posts_count": 14,
+                "reply_count": 10,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2018-09-12T19:09:03.825Z",
+                "last_posted_at": "2026-01-08T09:30:39.575Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T09:30:39.575Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "azure",
+                    "deployment"
+                ],
+                "tags_descriptions": {},
+                "views": 10053,
+                "like_count": 42,
+                "has_summary": false,
+                "last_poster_username": "jan-mb-me",
+                "category_id": 53,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 8869,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 7147,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 11317,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 9214,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 26935,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "ClaudeCode - Agentic AI for Elixir Applications",
+                "id": 73911,
+                "title": "ClaudeCode - Agentic AI for Elixir Applications",
+                "slug": "claudecode-agentic-ai-for-elixir-applications",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2026-01-08T00:34:05.238Z",
+                "last_posted_at": "2026-01-08T00:34:05.295Z",
+                "bumped": true,
+                "bumped_at": "2026-01-08T00:34:05.295Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ai",
+                    "claude",
+                    "claude-code",
+                    "liveview",
+                    "mcp"
+                ],
+                "tags_descriptions": {},
+                "views": 114,
+                "like_count": 2,
+                "has_summary": false,
+                "last_poster_username": "guess",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 24221,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is it common to use `use` and `__using__` for re-dispatching?",
+                "id": 73910,
+                "title": "Is it common to use `use` and `__using__` for re-dispatching?",
+                "slug": "is-it-common-to-use-use-and-using-for-re-dispatching",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2026-01-07T20:12:12.560Z",
+                "last_posted_at": "2026-01-07T20:57:47.310Z",
+                "bumped": true,
+                "bumped_at": "2026-01-07T20:57:47.310Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "learning-elixir",
+                    "metaprogramming"
+                ],
+                "tags_descriptions": {},
+                "views": 100,
+                "like_count": 4,
+                "has_summary": false,
+                "last_poster_username": "ostap",
+                "category_id": 31,
+                "pinned_globally": false,
+                "has_accepted_answer": true,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user_id": 11238,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user_id": 1118,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CubDB - A pure-Elixir embedded database",
+                "id": 48631,
+                "title": "CubDB - A pure-Elixir embedded database",
+                "slug": "cubdb-a-pure-elixir-embedded-database",
+                "posts_count": 15,
+                "reply_count": 7,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2022-06-28T10:38:56.845Z",
+                "last_posted_at": "2026-01-07T18:27:04.886Z",
+                "bumped": true,
+                "bumped_at": "2026-01-07T18:27:04.886Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "cubdb",
+                    "database",
+                    "databases",
+                    "embedded",
+                    "kv-store",
+                    "nerves"
+                ],
+                "tags_descriptions": {},
+                "views": 3579,
+                "like_count": 77,
+                "has_summary": false,
+                "last_poster_username": "johnsseruwagi",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 8009,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 2273,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 21798,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 14383,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 28298,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "LiveVue - v1.0 released with igniter installer, forms support and more!",
+                "id": 73896,
+                "title": "LiveVue - v1.0 released with igniter installer, forms support and more!",
+                "slug": "livevue-v1-0-released-with-igniter-installer-forms-support-and-more",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2026-01-06T14:50:49.101Z",
+                "last_posted_at": "2026-01-07T16:56:37.092Z",
+                "bumped": true,
+                "bumped_at": "2026-01-07T16:56:37.092Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "library",
+                    "livevue",
+                    "phoenix",
+                    "to-be-merged",
+                    "vuejs"
+                ],
+                "tags_descriptions": {},
+                "views": 265,
+                "like_count": 20,
+                "has_summary": false,
+                "last_poster_username": "sezaru",
+                "category_id": 153,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 24206,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user_id": 14851,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 7357,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            },
+            {
+                "fancy_title": "BPF - Convert binary pattern matching to classic BPF programs",
+                "id": 73888,
+                "title": "BPF - Convert binary pattern matching to classic BPF programs",
+                "slug": "bpf-convert-binary-pattern-matching-to-classic-bpf-programs",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2026-01-05T16:35:42.318Z",
+                "last_posted_at": "2026-01-07T16:05:33.607Z",
+                "bumped": true,
+                "bumped_at": "2026-01-07T16:05:33.607Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "bpf",
+                    "networking"
+                ],
+                "tags_descriptions": {},
+                "views": 197,
+                "like_count": 12,
+                "has_summary": false,
+                "last_poster_username": "Asd",
+                "category_id": 43,
+                "pinned_globally": false,
+                "has_accepted_answer": false,
+                "can_vote": false,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user_id": 18671,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user_id": 26726,
+                        "primary_group_id": null,
+                        "flair_group_id": null
+                    }
+                ]
+            }
+        ]
+    }
+}

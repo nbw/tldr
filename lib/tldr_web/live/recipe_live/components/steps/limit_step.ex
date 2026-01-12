@@ -3,6 +3,8 @@ defmodule TldrWeb.RecipeLive.Components.LimitStep do
 
   import TldrWeb.RecipeLive.Components.Helpers
 
+  use TldrWeb.RecipeLive.Components.StepComponent
+
   def step_params_inputs(%{action: "limit"} = assigns) do
     ~H"""
     <div class="p-3 rounded">

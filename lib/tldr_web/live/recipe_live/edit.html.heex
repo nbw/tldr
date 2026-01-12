@@ -1,0 +1,63 @@
+<Layouts.app flash={@flash} current_scope={@current_scope} class="">
+  <div class="flex border-t border-gray-500/50">
+    <.form
+      for={@form}
+      id="recipe-form"
+      phx-change="validate"
+      phx-submit="save"
+      class="w-full flex"
+    >
+      <div class="w-2/5 min-h-dvh p-8">
+        <.header>
+          <:subtitle>Use this form to manage recipe records in your database.</:subtitle>
+        </.header>
+        <.input field={@form[:name]} type="text" label="Name" />
+        <.input field={@form[:type]} type="text" label="Type" readonly />
+        <footer>
+          <.button disabled={disable_save?(@form)} phx-disable-with="Saving..." variant="primary">
+            Save Recipe
+          </.button>
+          <.button navigate={return_path(@current_scope, @return_to, @recipe)}>Cancel</.button>
+        </footer>
+      </div>
+      <div class="w-3/5 bg-pattern border-l border-gray-500/50 min-h-dvh px-8 py-4">
+        <div :if={@recipe_type}>
+          <h3 class="font-semibold text-lg">Steps</h3>
+          <div class="flex flex-col justify-center items-center">
+            <.inputs_for :let={step_form} field={@form[:steps]}>
+              <.step
+                step_form={step_form}
+                step_status={step_status(@step_statuses, step_form)}
+                step_preview={step_preview(@step_statuses, step_form)}
+                parent_name="recipe"
+              />
+              <div
+                :if={@recipe_type not in ~w(rss)a && show_new_step?(@form, step_form)}
+                class="text-center"
+              >
+                <div class="my-2">
+                  <.icon name="hero-arrow-down-mini" class="w-5 h-5" />
+                </div>
+                <div
+                  phx-value-index={step_form.index}
+                  phx-click="add_step"
+                  class={[
+                    "btn-primary",
+                    "max-w-xs mx-auto my-4",
+                    "border border-gray-500/70 hover:border-gray-500/50 hover:bg-gray-500/10",
+                    "rounded p-2 text-center text-sm"
+                  ]}
+                >
+                  <.icon name="hero-plus-circle" class="w-5 h-5" /> Add step
+                </div>
+              </div>
+              <div :if={!last_step?(@form, step_form)} class="text-center my-2">
+                <.icon name="hero-arrow-down-mini" class="w-5 h-5" />
+              </div>
+            </.inputs_for>
+          </div>
+        </div>
+      </div>
+    </.form>
+  </div>
+</Layouts.app>

@@ -57,7 +57,7 @@ defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject do
   alias Tldr.Feed.Schema.IndexItem
   alias Tldr.Core.DateTime, as: DT
 
-  def index(%RssObject{items: items}) do
+  def apply(%RssObject{items: items}) do
     Stream.map(items, fn item ->
       date =
         case DT.from_rss(item.pub_date) do

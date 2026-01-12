@@ -10,7 +10,7 @@ alias Tldr.Kitchen.{
 }
 
 alias Tldr.Kitchen.Actions.{
-  Extract,
-  JsonGet,
+  Formatter,
+  Api,
   Limit
 }

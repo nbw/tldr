@@ -7,5 +7,8 @@ defmodule Tldr.Kitchen.Action do
   """
   alias Tldr.Kitchen.Step
 
-  @callback execute(params :: Step.t(), input :: any()) :: {:ok, any()} | {:error, any()}
+  @callback execute(step :: Step.t(), input :: any(), opts :: Keyword.t()) ::
+              {:ok, any()} | {:error, any()}
+
+  @callback summary(payload :: any()) :: String.t()
 end

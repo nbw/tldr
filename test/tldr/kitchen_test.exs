@@ -70,11 +70,11 @@ defmodule Tldr.KitchenTest do
     test "update_recipe/3 with valid data updates the recipe" do
       scope = user_scope_fixture()
       recipe = recipe_fixture(scope)
-      update_attrs = %{name: "some updated name", type: "xml", url: "some updated url"}
+      update_attrs = %{name: "some updated name", type: "json", url: "some updated url"}
 
       assert {:ok, %Recipe{} = recipe} = Kitchen.update_recipe(scope, recipe, update_attrs)
       assert recipe.name == "some updated name"
-      assert recipe.type == :xml
+      assert recipe.type == :json
       assert recipe.url == "some updated url"
     end
 

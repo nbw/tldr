@@ -1,59 +1,61 @@
-defmodule Tldr.Core.FindNestedTest do
-  use Tldr.DataCase
+# TODO: probably delete
 
-  alias Tldr.Kitchen.Step
-  alias Tldr.Core.FindNested
+# defmodule Tldr.Core.FindNestedTest do
+#   use Tldr.DataCase
 
-  describe "find" do
-    test "find top level" do
-      step = %Step{id: 1}
-      steps = [step]
+#   alias Tldr.Kitchen.Step
+#   alias Tldr.Core.FindNested
 
-      assert step == FindNested.find(steps, :id, 1, :steps)
-      assert nil == FindNested.find(steps, :id, 2, :steps)
-    end
+#   describe "find" do
+#     test "find top level" do
+#       step = %Step{id: 1}
+#       steps = [step]
 
-    test "find nested" do
-      nested_step = %Step{id: 3}
-      step = %Step{id: 1, steps: [nested_step]}
-      steps = [step]
+#       assert step == FindNested.find(steps, :id, 1, :steps)
+#       assert nil == FindNested.find(steps, :id, 2, :steps)
+#     end
 
-      assert nested_step == FindNested.find(steps, :id, 3, :steps)
-    end
-  end
+#     test "find nested" do
+#       nested_step = %Step{id: 3}
+#       step = %Step{id: 1, steps: [nested_step]}
+#       steps = [step]
 
-  describe "update" do
-    test "update top level" do
-      step = %Step{id: 1, title: "Test"}
-      new_step_params = %{title: "Test again"}
-      steps = [step]
+#       assert nested_step == FindNested.find(steps, :id, 3, :steps)
+#     end
+#   end
 
-      {[updated_step], true} =
-        FindNested.update(steps, :id, 1, :steps, fn struct ->
-          Map.merge(struct, new_step_params)
-        end)
+#   describe "update" do
+#     test "update top level" do
+#       step = %Step{id: 1, title: "Test"}
+#       new_step_params = %{title: "Test again"}
+#       steps = [step]
 
-      assert updated_step.title == "Test again"
-    end
+#       {[updated_step], true} =
+#         FindNested.update(steps, :id, 1, :steps, fn struct ->
+#           Map.merge(struct, new_step_params)
+#         end)
 
-    test "update nested" do
-      nested_step = %Step{id: 3, title: "Nested"}
-      new_step_params = %{title: "Nested 1234"}
-      step = %Step{id: 1, steps: [nested_step]}
-      steps = [step, %Step{id: 2}]
+#       assert updated_step.title == "Test again"
+#     end
 
-      {[updated_step, other_step], true} =
-        FindNested.update(steps, :id, 3, :steps, fn struct ->
-          Map.merge(struct, new_step_params)
-        end)
+#     test "update nested" do
+#       nested_step = %Step{id: 3, title: "Nested"}
+#       new_step_params = %{title: "Nested 1234"}
+#       step = %Step{id: 1}
+#       steps = [step, %Step{id: 2}]
 
-      assert other_step.id == 2
+#       {[updated_step, other_step], true} =
+#         FindNested.update(steps, :id, 3, :steps, fn struct ->
+#           Map.merge(struct, new_step_params)
+#         end)
 
-      nested_updated_step = updated_step.steps |> List.first()
+#       assert other_step.id == 2
 
-      assert nested_updated_step.title == "Nested 1234"
+#       nested_updated_step = updated_step.steps |> List.first()
 
-      IO.inspect(updated_step)
-    end
-  end
-end
+#       assert nested_updated_step.title == "Nested 1234"
+
+#       IO.inspect(updated_step)
+#     end
+#   end
+# end

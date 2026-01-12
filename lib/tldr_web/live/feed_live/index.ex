@@ -10,7 +10,9 @@ defmodule TldrWeb.FeedLive.Index do
     ~H"""
     <Layouts.app class="bg-mesh" flash={@flash} current_scope={@current_scope}>
       <.logo />
-      <.feed_list items={@items} />
+      <div class="max-w-2xl mx-auto">
+        <.feed_list items={@items} />
+      </div>
     </Layouts.app>
     """
   end

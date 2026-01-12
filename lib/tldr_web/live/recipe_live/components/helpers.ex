@@ -45,4 +45,16 @@ defmodule TldrWeb.RecipeLive.Components.Helpers do
       _ -> ""
     end
   end
+
+  def get_step_component(step) do
+    alias TldrWeb.RecipeLive.Components
+
+    case step do
+      "api" -> Components.ApiStep
+      "rss" -> Components.RssStep
+      "limit" -> Components.LimitStep
+      "formatter" -> Components.FormatterStep
+      _ -> raise "missing step component: #{step}"
+    end
+  end
 end
