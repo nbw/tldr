@@ -25,15 +25,15 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
                 name={"#{@step_form.name}[params][fields][#{idx}][key]"}
                 value={key}
                 placeholder="Field name"
-                class="flex-1 px-2 py-1 border border-gray-300/50 rounded text-sm"
+                class="flex-1 px-2 py-1 border border-gray-300/50 rounded text-xs"
               />
               <span class="text-base-content/50">→</span>
               <input
                 type="text"
                 name={"#{@step_form.name}[params][fields][#{idx}][value]"}
                 value={value}
-                placeholder="JSON path (e.g., $.title)"
-                class="flex-1 px-2 py-1 border border-gray-300/50 rounded text-sm"
+                placeholder="Value or JSONPath (e.g. $.title)"
+                class="flex-1 px-2 py-1 border border-gray-300/50 rounded text-xs"
               />
               <button
                 :if={!@locked}

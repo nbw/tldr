@@ -7,7 +7,7 @@ defmodule Tldr.AI.Functions.RunStep do
     Function.new!(%{
       name: "run_step",
       description: """
-      Run step (or steps) from a recipe.
+      Run steps from a recipe.
       Usefully for testing the result of a step.
       The array of steps must include all previous steps in addition to the current step being tested.
       For example, testing step index 2 must include steps 0, 1, and 2.
@@ -47,7 +47,7 @@ defmodule Tldr.AI.Functions.RunStep do
                   additionalProperties: true
                 }
               },
-              required: ["id", "index", "type", "params"],
+              required: ["id", "index", "action", "params"],
               additionalProperties: false
             },
             minItems: 1
@@ -60,15 +60,16 @@ defmodule Tldr.AI.Functions.RunStep do
         raw_steps =
           Map.get(args, "steps", [])
 
-        input = Map.get(context, "input", "{}") |> Jason.decode!()
+        input = Map.get(context, "input", "[]") |> Jason.decode!()
 
         Logger.debug(
           "Running #{length(raw_steps)} steps for recipe #{Map.get(context, :recipe_id)}"
         )
 
         with {:ok, steps} <- parse_steps(raw_steps),
-             {:ok, result} <- run_steps(steps, input) do
-          {:ok, JSON.encode!(result)}
+             {:ok, result} <- run_steps(steps, input),
+             {:ok, summary} <- summarize_results(steps, result) do
+          {:ok, summary}
         else
           {:error, :parse_error, reason} ->
             Logger.error("Error parsing steps: #{inspect(reason)}")
@@ -107,22 +108,23 @@ defmodule Tldr.AI.Functions.RunStep do
 
   @spec summarize_results(any(), any()) :: :ok
   def summarize_results(steps, results) do
-    Enum.map(steps, fn step ->
-      summary =
-        if results[step.id] do
-          step.actor.__struct__.summary(results[step.id])
-          |> String.replace_trailing("\n", "")
-        else
-          "Step results not found. Previous step likely failed."
-        end
+    {:ok,
+     Enum.map(steps, fn step ->
+       summary =
+         if results[step.id] do
+           step.actor.__struct__.summary(results[step.id])
+           |> String.replace_trailing("\n", "")
+         else
+           "Step results not found. Previous step likely failed."
+         end
 
-      """
-      step: #{step.id}
-      #{summary}
+       """
+       step: #{step.id}
+       #{summary}
 
-      """
-    end)
-    |> Enum.join("")
-    |> String.replace("\n\n\n", "\n\n")
+       """
+     end)
+     |> Enum.join("")
+     |> String.replace("\n\n\n", "\n\n")}
   end
 end

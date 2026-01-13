@@ -7,18 +7,35 @@
       phx-submit="save"
       class="w-full flex"
     >
-      <div class="w-2/5 min-h-dvh p-8">
-        <.header>
-          <:subtitle>Use this form to manage recipe records in your database.</:subtitle>
-        </.header>
-        <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:type]} type="text" label="Type" readonly />
-        <footer>
-          <.button disabled={disable_save?(@form)} phx-disable-with="Saving..." variant="primary">
-            Save Recipe
-          </.button>
-          <.button navigate={return_path(@current_scope, @return_to, @recipe)}>Cancel</.button>
-        </footer>
+      <div class="w-2/5 h-[calc(100dvh-3rem)] p-8 flex flex-col overflow-hidden gap-12">
+        <div>
+          <.header>
+            <:subtitle>Use this form to manage recipe records in your database.</:subtitle>
+          </.header>
+          <.input field={@form[:name]} type="text" label="Name" />
+          <.input field={@form[:type]} type="text" label="Type" readonly />
+          <footer>
+            <.button
+              disabled={disable_save?(@form)}
+              phx-disable-with="Saving..."
+              variant="primary"
+            >
+              Save Recipe
+            </.button>
+            <.button navigate={return_path(@current_scope, @return_to, @recipe)}>Cancel</.button>
+          </footer>
+        </div>
+        <div class="flex-1 min-h-0">
+          <div class="flex flex-col h-full mx-auto max-w-4xl border border-base-300 rounded-lg px-4 pb-4">
+            <.live_component
+              title="Chat"
+              module={RecipeChat}
+              id="recipe-chat"
+              current_scope={@current_scope}
+              recipe={@recipe}
+            />
+          </div>
+        </div>
       </div>
       <div class="w-3/5 bg-pattern border-l border-gray-500/50 min-h-dvh px-8 py-4">
         <div :if={@recipe_type}>

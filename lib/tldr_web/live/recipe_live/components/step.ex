@@ -22,7 +22,7 @@ defmodule TldrWeb.RecipeLive.Components.Step do
 
     ~H"""
     <div
-      class="border border-gray-300/50 bg-gray-500/80 rounded-sm flex min-w-xl"
+      class="border border-gray-400/50 bg-base-100/90 rounded-sm flex min-w-xl"
       id={"step-#{@id}"}
     >
       <div class="grow p-4 relative">

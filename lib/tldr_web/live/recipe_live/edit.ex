@@ -8,6 +8,8 @@ defmodule TldrWeb.RecipeLive.Edit do
   alias Tldr.Kitchen.Step
   alias Tldr.Kitchen.Recipe
 
+  alias TldrWeb.RecipeLive.Components.RecipeChat
+
   import TldrWeb.RecipeLive.FormHelpers
 
   import TldrWeb.RecipeLive.Components.Step

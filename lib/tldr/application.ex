@@ -10,6 +10,7 @@ defmodule Tldr.Application do
     children = [
       {Registry, keys: :unique, name: Tldr.AgentRegistry},
       {DynamicSupervisor, name: Tldr.AgentSupervisor, strategy: :one_for_one},
+      {Task.Supervisor, name: Tldr.ChatSupervisor},
       TldrWeb.Telemetry,
       Tldr.Repo,
       {Ecto.Migrator,

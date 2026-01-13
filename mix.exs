@@ -72,6 +72,9 @@ defmodule Tldr.MixProject do
       {:warpath, "~> 0.6.3"},
       {:langchain, "~> 0.4.0"},
       {:cachex, "~> 4.0"},
+      # fast_rss depends on an older version of rustler
+      {:rustler, "~> 0.32", override: true},
+      {:mdex, "~> 0.11"},
 
       # Test dependencies
       {:mox, "~> 1.0", only: :test}

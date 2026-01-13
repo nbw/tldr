@@ -53,12 +53,16 @@ defmodule Tldr.Kitchen.Chef do
     end
   end
 
-  def do_cook(_, input, opts) do
+  def do_cook(_, input, opts) when is_list(input) do
     if Keyword.get(opts, :summary, false) do
       {:ok, Enum.reverse(input)}
     else
       {:ok, previous_step_result(input)}
     end
+  end
+
+  def do_cook(_, input, opts) do
+    input
   end
 
   def actor_module(%Step{} = step) do
@@ -89,7 +93,8 @@ defmodule Tldr.Kitchen.Chef do
 
   def next_input(step, current_output, previous_input, opts) do
     if Keyword.get(opts, :summary, false) do
-      [{step.id, current_output} | previous_input || []]
+      prev = if is_list(previous_input), do: previous_input, else: []
+      [{step.id, current_output} | prev]
     else
       [{step.id, current_output}]
     end
