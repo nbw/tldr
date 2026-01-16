@@ -35,18 +35,34 @@ defmodule TldrWeb.RecipeLive.Edit do
     recipe =
       current_scope
       |> Kitchen.get_recipe!(recipe_id)
-      |> decode_params_for_form()
+
+    recipe_for_form = decode_params_for_form(recipe)
 
     form =
       current_scope
-      |> Kitchen.change_recipe(recipe)
+      |> Kitchen.change_recipe(recipe_for_form)
       |> to_form()
 
     socket
     |> assign(:step_statuses, %{})
-    |> assign(:recipe, recipe)
+    |> assign(:recipe, recipe_for_form)
     |> assign(:recipe_type, recipe.type)
     |> assign(:form, form)
+    |> assign(:show, %{"workspace" => "steps"})
+    |> assign_async(:feed, fn ->
+      feed = Tldr.Feed.cook_recipe(recipe)
+
+      {:ok, %{feed: feed}}
+    end)
+  end
+
+  def async_load_feed(socket, recipe) do
+    socket
+    |> assign_async(:feed, fn ->
+      feed = Tldr.Feed.cook_recipe(recipe)
+
+      {:ok, %{feed: feed}}
+    end)
   end
 
   @impl true
@@ -82,6 +98,7 @@ defmodule TldrWeb.RecipeLive.Edit do
     {:noreply, assign(socket, form: to_form(changeset, action: :validate))}
   end
 
+  @impl true
   def handle_event("select_recipe_type", %{"type" => type}, socket) do
     %{
       current_scope: current_scope,
@@ -148,6 +165,7 @@ defmodule TldrWeb.RecipeLive.Edit do
     {:noreply, assign(socket, form: to_form(new_changeset))}
   end
 
+  @impl true
   def handle_event("preview", %{"id" => id}, socket) do
     recipe = socket.assigns.recipe
 
@@ -187,6 +205,11 @@ defmodule TldrWeb.RecipeLive.Edit do
     end)
 
     {:noreply, socket}
+  end
+
+  @impl true
+  def handle_event("toggle_show", params, socket) do
+    {:noreply, assign(socket, :show, Map.merge(socket.assigns.show, params))}
   end
 
   @impl true

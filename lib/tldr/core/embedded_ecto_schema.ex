@@ -53,7 +53,7 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
       # apply params
       def apply(params) do
         %__MODULE__{}
-        |> changeset(params)
+        |> changeset(params || %{})
         |> apply_action(:insert)
       end
 
@@ -66,7 +66,9 @@ defmodule Tldr.Core.EmbeddedEctoSchema do
       def map_apply(enum) do
         Enum.reduce(enum, [], fn d, acc ->
           case apply(d) do
-            {:ok, value} -> [value | acc]
+            {:ok, value} ->
+              [value | acc]
+
             {:error, error} ->
               Logger.error("Error applying #{inspect(d)}")
               Logger.error("#{inspect(error)}")

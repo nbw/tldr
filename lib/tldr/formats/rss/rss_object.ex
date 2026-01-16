@@ -52,28 +52,44 @@ defmodule Tldr.Formats.Rss.RssObject do
   end
 end
 
-defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject do
-  alias Tldr.Formats.Rss.RssObject
+defimpl Enumerable, for: Tldr.Formats.Rss.RssObject do
+  def count(%{items: items}) do
+    {:ok, length(items)}
+  end
+
+  def member?(%{items: items}, element) do
+    {:ok, element in items}
+  end
+
+  def reduce(%{items: items}, acc, fun) do
+    Enumerable.List.reduce(items, acc, fun)
+  end
+
+  def slice(%{items: items}) do
+    {:ok, length(items), &Enumerable.List.slice(items, &1, &2, 1)}
+  end
+end
+
+defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject.Item do
+  alias Tldr.Formats.Rss.RssObject.Item
   alias Tldr.Feed.Schema.IndexItem
   alias Tldr.Core.DateTime, as: DT
 
-  def apply(%RssObject{items: items}) do
-    Stream.map(items, fn item ->
-      date =
-        case DT.from_rss(item.pub_date) do
-          {:ok, datetime} -> datetime
-          _ -> nil
-        end
+  def apply(%Item{} = item) do
+    date =
+      case DT.from_rss(item.pub_date) do
+        {:ok, datetime} -> datetime
+        _ -> nil
+      end
 
-      %{
-        id: Ecto.UUID.generate(),
-        title: item.title,
-        url: extract_url(item.link),
-        description: item.description,
-        date: date
-      }
-    end)
-    |> IndexItem.map_apply()
+    %{
+      id: Ecto.UUID.generate(),
+      title: item.title,
+      url: extract_url(item.link),
+      description: item.description,
+      date: date
+    }
+    |> IndexItem.apply()
   end
 
   defp extract_url(url_string) do
@@ -83,3 +99,35 @@ defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject do
     end
   end
 end
+
+# defimpl Tldr.Feed.FeedProtocol, for: Tldr.Formats.Rss.RssObject do
+#   alias Tldr.Formats.Rss.RssObject
+#   alias Tldr.Feed.Schema.IndexItem
+#   alias Tldr.Core.DateTime, as: DT
+
+#   def apply(%RssObject{items: items}) do
+#     Stream.map(items, fn item ->
+#       date =
+#         case DT.from_rss(item.pub_date) do
+#           {:ok, datetime} -> datetime
+#           _ -> nil
+#         end
+
+#       %{
+#         id: Ecto.UUID.generate(),
+#         title: item.title,
+#         url: extract_url(item.link),
+#         description: item.description,
+#         date: date
+#       }
+#     end)
+#     |> IndexItem.map_apply()
+#   end
+
+#   defp extract_url(url_string) do
+#     case Regex.run(~r/href="([^"]+)"/, url_string) do
+#       [_, url] -> url
+#       nil -> url_string
+#     end
+#   end
+# end

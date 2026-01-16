@@ -15,7 +15,6 @@ defmodule Tldr.Kitchen.Chef do
 
   def cook(%Recipe{steps: steps, type: type}, input, opts) do
     opts = Keyword.put(opts, :recipe_type, type)
-
     cook(steps, input, opts)
   end
 
@@ -57,11 +56,14 @@ defmodule Tldr.Kitchen.Chef do
     if Keyword.get(opts, :summary, false) do
       {:ok, Enum.reverse(input)}
     else
+      dbg(input)
+
       {:ok, previous_step_result(input)}
+      |> dbg
     end
   end
 
-  def do_cook(_, input, opts) do
+  def do_cook(_, input, _opts) do
     input
   end
 
@@ -78,17 +80,19 @@ defmodule Tldr.Kitchen.Chef do
     end
   end
 
+  def previous_step_result(result \\ nil)
+
   def previous_step_result([result | _]) do
+    previous_step_result(result)
+  end
+
+  def previous_step_result(result) do
     case result do
       {_steps, %Response{body: body}} -> body
       %Response{body: body} -> body
       {_steps, result} -> result
       result -> result
     end
-  end
-
-  def previous_step_result(_steps) do
-    nil
   end
 
   def next_input(step, current_output, previous_input, opts) do

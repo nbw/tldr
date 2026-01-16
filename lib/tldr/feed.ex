@@ -4,19 +4,22 @@ defmodule Tldr.Feed do
   alias Tldr.Kitchen.Recipe
   alias Tldr.Kitchen.Chef
 
+  require Logger
+
   def cook_recipe(%Recipe{} = recipe) do
-    with {:ok, result} <- Chef.cook(recipe) do
-      cond do
-        is_list(result) ->
-          Enum.map(result, &Tldr.Feed.FeedProtocol.apply/1)
+    with {:ok, results} <- Chef.cook(recipe) do
+      dbg(results)
 
-        result ->
-          Tldr.Feed.FeedProtocol.apply(result)
-      end
+      Enum.reduce_while(results, {:ok, []}, fn result, {:ok, acc} ->
+        case Tldr.Feed.FeedProtocol.apply(result) do
+          {:ok, item} ->
+            {:cont, {:ok, [item | acc]}}
 
-      # |> Enum.map(fn item ->
-      #   Map.put(item, "source", recipe.name)
-      # end)
+          {:error, reason} ->
+            Logger.error("Error applying feed protocol: #{inspect(reason)}")
+            {:halt, {:error, reason}}
+        end
+      end)
     end
   end
 end

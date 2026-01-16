@@ -105,7 +105,6 @@ defmodule Tldr.AI.Chat do
     #{@prompt}
     #{current_steps(scope, recipe_id)}
     """
-    |> tap(fn prompt -> IO.inspect(prompt, label: "System Prompt") end)
   end
 
   def current_steps(scope, recipe_id) do

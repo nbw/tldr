@@ -29,7 +29,7 @@ defmodule Tldr.Kitchen.Actions.Api do
   end
 
   @impl true
-  def execute(%Step{actor: %__MODULE__{method: "GET"} = action}, input, _opts) do
+  def execute(%Step{actor: %__MODULE__{method: "GET"} = action}, input, opts) do
     url =
       if String.contains?(action.url, "{{val}}") do
         String.replace(action.url, "{{val}}", to_string(input))
@@ -37,13 +37,21 @@ defmodule Tldr.Kitchen.Actions.Api do
         action.url
       end
 
-    case http_client().get_cached(url, require_json: true) do
+    # require JSON for JSON recipes
+    require_json = Keyword.get(opts, :recipe_type) == :json
+
+    case http_client().get_cached(url, require_json: require_json) do
       # TODO: is it necessary to check if the response is JSON?
       {:ok, %{status: 200} = response} ->
-        if is_json?(response) do
-          {:ok, response}
-        else
-          {:error, "Response is not JSON"}
+        cond do
+          require_json and is_json?(response) ->
+            {:ok, response}
+
+          require_json and not is_json?(response) ->
+            {:error, "Response is not JSON"}
+
+          true ->
+            {:ok, response}
         end
 
       {:ok, %{status: status} = response} when status >= 400 and status < 500 ->

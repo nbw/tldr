@@ -10,7 +10,7 @@
       <div class="w-2/5 h-[calc(100dvh-3rem)] p-8 flex flex-col overflow-hidden gap-12">
         <div>
           <.header>
-            <:subtitle>Use this form to manage recipe records in your database.</:subtitle>
+            <:subtitle></:subtitle>
           </.header>
           <.input field={@form[:name]} type="text" label="Name" />
           <.input field={@form[:type]} type="text" label="Type" readonly />
@@ -37,10 +37,51 @@
           </div>
         </div>
       </div>
-      <div class="w-3/5 bg-pattern border-l border-gray-500/50 min-h-dvh px-8 py-4">
+      <div class={[
+        "w-3/5 bg-pattern border-l border-gray-500/50 min-h-dvh px-8 py-4",
+        if(@show["workspace"] == "preview", do: "bg-base-900/10", else: "")
+      ]}>
         <div :if={@recipe_type}>
-          <h3 class="font-semibold text-lg">Steps</h3>
-          <div class="flex flex-col justify-center items-center">
+          <div class="flex text-lg mb-4">
+            <div
+              class={[
+                "z-50 sticky top-0 left-0 px-3 py-1 rounded-l-lg w-[6rem] text-center cursor-pointer",
+                "border text-base-content/80",
+                if(@show["workspace"] == "steps",
+                  do: "font-semibold border-gray-500/70 border-r-1 bg-base-800/20",
+                  else: "border-gray-400 border-r-0 opacity-50"
+                )
+              ]}
+              phx-click="toggle_show"
+              phx-value-workspace="steps"
+            >
+              Steps
+            </div>
+            <div
+              class={[
+                "px-3 py-1 rounded-r-lg w-[6rem] text-center cursor-pointer",
+                "border text-base-content/80",
+                if(@show["workspace"] == "preview",
+                  do: "font-semibold border-gray-500/70 border-l-1 bg-base-900/20",
+                  else: "border-gray-400 border-l-0 opacity-50"
+                )
+              ]}
+              phx-click="toggle_show"
+              phx-value-workspace="preview"
+            >
+              Preview
+            </div>
+          </div>
+          <div
+            :if={@show["workspace"] == "preview"}
+            class="flex flex-col justify-center items-center"
+          >
+            <TldrWeb.FeedLive.FeedListComponent.feed_list items={@feed} />
+          </div>
+          <div
+            :if={@show["workspace"] == "steps"}
+            class="flex flex-col justify-center items-center"
+          >
             <.inputs_for :let={step_form} field={@form[:steps]}>
               <.step
                 step_form={step_form}

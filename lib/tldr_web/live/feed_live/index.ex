@@ -1,6 +1,8 @@
 defmodule TldrWeb.FeedLive.Index do
   use TldrWeb, :live_view
 
+  require Logger
+
   alias Tldr.Kitchen
 
   import TldrWeb.FeedLive.FeedListComponent
@@ -37,7 +39,22 @@ defmodule TldrWeb.FeedLive.Index do
 
   defp list_feed_items(recipes) do
     recipes
-    |> Enum.flat_map(&Tldr.Feed.cook_recipe/1)
+    |> Enum.flat_map(fn recipe ->
+      case Tldr.Feed.cook_recipe(recipe) do
+        {:ok, items} when is_list(items) ->
+          items
+
+        {:ok, items} ->
+          items
+          |> dbg
+
+          []
+
+        {:error, reason} ->
+          Logger.error("Error cooking recipe: #{inspect(reason)}")
+          []
+      end
+    end)
     |> Enum.sort_by(& &1.date, {:desc, DateTime})
   end
 end
