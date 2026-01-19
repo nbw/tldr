@@ -26,15 +26,13 @@
           </footer>
         </div>
         <div class="flex-1 min-h-0">
-          <div class="flex flex-col h-full mx-auto max-w-4xl border border-base-300 rounded-lg px-4 pb-4">
-            <.live_component
-              title="Chat"
-              module={RecipeChat}
-              id="recipe-chat"
-              current_scope={@current_scope}
-              recipe={@recipe}
-            />
-          </div>
+          <.live_component
+            title="Chat"
+            module={RecipeChat}
+            id="recipe-chat"
+            current_scope={@current_scope}
+            recipe={@recipe}
+          />
         </div>
       </div>
       <div class={[

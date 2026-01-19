@@ -56,7 +56,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
         phx-click="step-formatter:add_formatter_field"
         phx-value-id={step_id(@step_form)}
         phx-value-index={step_index(@step_form)}
-        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 bg-gray-300/50 rounded p-2 text-gray-700 text-center text-sm hover:bg-gray-300/60"
+        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 rounded p-2 text-base-content text-center text-sm hover:bg-gray-300/60"
       >
         <.icon name="hero-plus-circle" class="w-6 h-6" /> Add Field
       </button>

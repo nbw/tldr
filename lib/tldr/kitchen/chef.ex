@@ -56,10 +56,7 @@ defmodule Tldr.Kitchen.Chef do
     if Keyword.get(opts, :summary, false) do
       {:ok, Enum.reverse(input)}
     else
-      dbg(input)
-
       {:ok, previous_step_result(input)}
-      |> dbg
     end
   end
 

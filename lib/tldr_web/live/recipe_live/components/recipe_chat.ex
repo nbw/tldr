@@ -8,20 +8,22 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col h-full">
-      <%!-- Messages Area --%>
-      <div
-        id="messages-container"
-        class="flex-1 overflow-y-auto py-4 space-y-4"
-        phx-hook="ScrollToBottom"
-      >
-        <%= if @messages == [] do %>
-          <div class="flex items-center justify-center h-full text-base-content/40 text-sm">
-            <p>Send a message to start the conversation</p>
-          </div>
-        <% else %>
-          <%= for message <- @messages do %>
-            <.chat_message message={message} />
+    <div class={[
+      "flex flex-col mx-auto max-w-4xl border border-base-300 rounded-lg px-4 pb-4",
+      "transition-[height]",
+      (if length(@messages) > 0, do: "h-full", else: "h-[8.5rem]")
+      ]}>
+      <div class={["flex flex-col h-full"]}>
+        <%!-- Messages Area --%>
+        <div
+          id="messages-container"
+          class="flex-1 overflow-y-auto space-y-4"
+          phx-hook="ScrollToBottom"
+        >
+          <%= if length(@messages) > 0 do %>
+            <%= for message <- @messages do %>
+              <.chat_message message={message} />
+            <% end %>
           <% end %>
 
           <%!-- Loading indicator --%>
@@ -35,40 +37,44 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
               </div>
             </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
 
-      <%!-- Input Area --%>
-      <div class="pt-4 border-t border-base-300">
-        <div class="flex gap-3 items-center">
-          <input
-            type="text"
-            name="message"
-            value={@input}
-            placeholder="Type your message..."
-            autocomplete="off"
-            disabled={@loading}
-            phx-change="update_input"
-            phx-keydown="keydown"
-            phx-target={@myself}
-            class={[
-              "flex-1 px-4 py-2.5 rounded-xl border border-base-300 bg-base-100",
-              "text-base-content placeholder:text-base-content/40 text-xs",
-              "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary",
-              "transition-all duration-200",
-              @loading && "opacity-50 cursor-not-allowed"
-            ]}
-          />
-          <.button
-            variant="primary"
-            type="button"
-            disabled={@loading}
-            phx-click="send"
-            phx-target={@myself}
-          >
-            <span :if={not @loading}>Send</span>
-            <span :if={@loading} class="loading loading-spinner loading-sm"></span>
-          </.button>
+        <%!-- Input Area --%>
+        <div class={[
+          "pt-4",
+          if(length(@messages) > 0, do: "border-t border-base-300", else: "")
+        ]}>
+          <div class="flex gap-3 items-top">
+              <textarea
+                name="message"
+                value={@input}
+                placeholder={if length(@messages) == 0, do: "Send a message to start the conversation", else: "Type your message..."}
+                autocomplete="off"
+                disabled={@loading}
+                phx-change="update_input"
+                phx-keydown="keydown"
+                phx-target={@myself}
+                rows="5"
+                class={[
+                  "flex-1 px-4 py-2.5 rounded-xl border border-base-300 bg-base-100",
+                  "text-base-content placeholder:text-base-content/40 text-xs",
+                  "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary",
+                  "transition-all duration-200",
+                  @loading && "opacity-50 cursor-not-allowed",
+                  "resize-none"
+                ]}
+              ><%= @input %></textarea>
+            <.button
+              variant="primary"
+              type="button"
+              disabled={@loading}
+              phx-click="send"
+              phx-target={@myself}
+            >
+              <span :if={not @loading}>Send</span>
+              <span :if={@loading} class="loading loading-spinner loading-sm"></span>
+            </.button>
+          </div>
         </div>
       </div>
     </div>
@@ -114,15 +120,29 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
      |> assign(:chain, updated_chain)}
   end
 
+  def update(%{action: {:agent_response, {:ok, _last_message}}}, socket) do
+    # TODO: instead pull messages from the agent server
+    {:ok,
+     socket
+     |> assign(:messages, Tldr.AI.AgentServer.list_messages(socket.assigns.recipe.id))
+     |> assign(:loading, false)}
+  end
+
   def update(assigns, socket) do
+    %{current_scope: current_scope, recipe: recipe} = assigns
+
+    agent = Tldr.AI.AgentServer.get_or_start(current_scope, recipe.id)
+
     socket =
       socket
       |> assign(assigns)
-      |> assign_new(:messages, fn -> [] end)
+      |> assign(:agent, agent)
+      |> assign_new(:messages, fn -> Tldr.AI.AgentServer.list_messages(recipe.id) || [] end)
+      # |> assign_new(:messages, fn -> [] end)
       |> assign_new(:input, fn -> "" end)
       |> assign_new(:loading, fn -> false end)
       |> assign_new(:chain, fn ->
-        Chat.new(assigns.current_scope, assigns.recipe.id)
+        Chat.new(current_scope, recipe.id)
       end)
 
     {:ok, socket}
@@ -153,22 +173,16 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
       user_message = %{role: :user, content: message}
       messages = socket.assigns.messages ++ [user_message]
 
-      # Start async task to get AI response
-      # Send results to this component's PID, not the parent
-      chain = socket.assigns.chain
-
       pid = self()
 
-      Task.Supervisor.start_child(Tldr.ChatSupervisor, fn ->
-        Logger.warning("Sending message: #{message}")
-
-        result = Chat.send_message(chain, message)
-
+      callback =  fn result ->
         send_update(pid, TldrWeb.RecipeLive.Components.RecipeChat,
           id: "recipe-chat",
-          action: {:chat_response, result}
+          action: {:agent_response, result}
         )
-      end)
+      end
+
+      Tldr.AI.AgentServer.send_message(socket.assigns.recipe.id, message, callback)
 
       {:noreply,
        socket
@@ -180,41 +194,8 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
     end
   end
 
-  @impl true
-  def handle_info({:chat_response, {:ok, updated_chain}}, socket) do
-    # Task completed successfully
-    # Extract the response and add to messages
-    response = Chat.get_last_response(updated_chain)
-    assistant_message = %{role: :assistant, content: response}
-    messages = socket.assigns.messages ++ [assistant_message]
-
-    {:noreply,
-     socket
-     |> assign(:messages, messages)
-     |> assign(:loading, false)
-     |> assign(:chain, updated_chain)}
-  end
-
-  def handle_info({:chat_response, {:error, reason}}, socket) do
-    # Task failed - show error
-    Logger.error("Chat error: #{inspect(reason)}")
-
-    error_message = %{role: :assistant, content: "Sorry, something went wrong. Please try again."}
-    messages = socket.assigns.messages ++ [error_message]
-
-    {:noreply,
-     socket
-     |> assign(:messages, messages)
-     |> assign(:loading, false)}
-  end
-
-  # Catch-all for other messages
-  def handle_info(_msg, socket) do
-    {:noreply, socket}
-  end
-
   # Mock messages for UI development - remove when done styling
-  defp mock_messages do
+  def mock_messages do
     [
       %{role: :user, content: "Hey, can you help me with this recipe?"},
       %{

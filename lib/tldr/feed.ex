@@ -8,8 +8,6 @@ defmodule Tldr.Feed do
 
   def cook_recipe(%Recipe{} = recipe) do
     with {:ok, results} <- Chef.cook(recipe) do
-      dbg(results)
-
       Enum.reduce_while(results, {:ok, []}, fn result, {:ok, acc} ->
         case Tldr.Feed.FeedProtocol.apply(result) do
           {:ok, item} ->

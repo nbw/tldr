@@ -3,7 +3,7 @@ defmodule Tldr.AI.Functions.GenerateUUID do
 
   require Logger
 
-  def new() do
+  def new(pid \\ nil) do
     Function.new!(%{
       name: "generate_uuid",
       description:
@@ -22,6 +22,9 @@ defmodule Tldr.AI.Functions.GenerateUUID do
       function: fn %{"count" => count}, _context ->
         Logger.debug("Generating #{count} UUIDs...")
         uuids = Enum.map(1..count, fn _ -> Ecto.UUID.generate() end)
+        if pid do
+          send(pid, {:uuid, uuids})
+        end
         {:ok, JSON.encode!(uuids)}
       end
     })
