@@ -30,6 +30,11 @@ defmodule Tldr.AI.AgentServer do
       end
     end
 
+    def reset(current_scope, id) do
+      stop_agent(id)
+      get_or_start(current_scope, id)
+    end
+
     def stop_agent(id) do
       case Registry.lookup(Tldr.AgentRegistry, id) do
         [{pid, _}] -> GenServer.stop(pid, :normal)

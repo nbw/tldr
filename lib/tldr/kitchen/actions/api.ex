@@ -29,6 +29,10 @@ defmodule Tldr.Kitchen.Actions.Api do
   end
 
   @impl true
+  def execute(%Step{actor: %__MODULE__{url: nil}}, _input, _opts) do
+    {:error, "URL missing"}
+  end
+
   def execute(%Step{actor: %__MODULE__{method: "GET"} = action}, input, opts) do
     url =
       if String.contains?(action.url, "{{val}}") do

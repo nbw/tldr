@@ -17,7 +17,10 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
         <%!-- Messages Area --%>
         <div
           id="messages-container"
-          class="flex-1 overflow-y-auto space-y-4"
+          class={[
+            "flex-1 overflow-y-auto space-y-4",
+            (if length(@messages) > 0, do: "py-2")
+            ]}
           phx-hook="ScrollToBottom"
         >
           <%= if length(@messages) > 0 do %>
@@ -64,16 +67,27 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
                   "resize-none"
                 ]}
               ><%= @input %></textarea>
-            <.button
-              variant="primary"
-              type="button"
-              disabled={@loading}
-              phx-click="send"
-              phx-target={@myself}
-            >
-              <span :if={not @loading}>Send</span>
-              <span :if={@loading} class="loading loading-spinner loading-sm"></span>
-            </.button>
+            <div class="flex flex-col justify-around gap-2">
+              <.button
+                variant="primary"
+                type="button"
+                disabled={@loading}
+                phx-click="send"
+                phx-target={@myself}
+              >
+                <span :if={not @loading}>Send</span>
+                <span :if={@loading} class="loading loading-spinner loading-sm"></span>
+              </.button>
+              <.button
+                :if={length(@messages) > 0}
+                type="button"
+                disabled={@loading}
+                phx-click="reset"
+                phx-target={@myself}
+              >
+                New
+              </.button>
+            </div>
           </div>
         </div>
       </div>
@@ -94,7 +108,7 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
     ]}>
       <div class={[
         "max-w-[80%] px-4 py-3 rounded-2xl text-xs flex flex-col gap-3",
-        @message.role == :user && "rounded-bl-sm bg-base-200 text-base-content",
+        @message.role == :user && "rounded-bl-sm bg-base-200 text-base-content text-wrap",
         @message.role == :assistant && "rounded-br-sm bg-primary text-primary-content"
       ]}>
         {raw(markdown_to_html(@message.content))}
@@ -163,6 +177,19 @@ defmodule TldrWeb.RecipeLive.Components.RecipeChat do
 
   def handle_event("send", _params, socket) do
     send_message(socket)
+  end
+
+  def handle_event("reset", _params, socket) do
+    %{current_scope: current_scope, recipe: recipe} = socket.assigns
+    Tldr.AI.AgentServer.reset(current_scope, recipe.id)
+
+    {
+      :noreply,
+      socket
+      |> assign(:messages, Tldr.AI.AgentServer.list_messages(recipe.id))
+      |> assign(:input, "")
+      |> assign(:loading, false)
+    }
   end
 
   defp send_message(socket) do

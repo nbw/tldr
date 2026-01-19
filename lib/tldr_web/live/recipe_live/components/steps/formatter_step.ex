@@ -10,7 +10,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
   def step_params_inputs(%{action: "formatter"} = assigns) do
     ~H"""
     <div class="p-3 rounded">
-      <p class="text-sm text-base-content/70 mb-3">
+      <p class="text-xs text-base-content/70 mb-3">
         Extract fields from the input data using JSON paths.
       </p>
       <div class="space-y-2 mb-3">
@@ -56,7 +56,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
         phx-click="step-formatter:add_formatter_field"
         phx-value-id={step_id(@step_form)}
         phx-value-index={step_index(@step_form)}
-        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 rounded p-2 text-base-content text-center text-sm hover:bg-gray-300/60"
+        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 rounded p-2 text-base-content text-center text-xs hover:bg-gray-300/60"
       >
         <.icon name="hero-plus-circle" class="w-6 h-6" /> Add Field
       </button>

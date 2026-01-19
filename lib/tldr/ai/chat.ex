@@ -85,6 +85,8 @@ defmodule Tldr.AI.Chat do
   - Only answer questions about building steps. Otherwise reply "I'm sorry, I don't understand."
   - Use `http_get` to test APIs if needed.
   - If something goes wrong, say "Sorry, something went wrong."
+  - NEVER set a step to locked unless it was locked in the initial state.
+  - ALWAYS set a step to locked if it was locked in the initial state.
   """
 
   @doc """
