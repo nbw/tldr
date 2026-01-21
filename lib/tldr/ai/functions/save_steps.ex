@@ -5,7 +5,7 @@ defmodule Tldr.AI.Functions.SaveSteps do
 
   require Logger
 
-  def new() do
+  def new(pid \\ nil) do
     Function.new!(%{
       name: "save_steps",
       description:
@@ -63,13 +63,19 @@ defmodule Tldr.AI.Functions.SaveSteps do
           recipe = Kitchen.get_recipe!(scope, recipe_id)
           params = %{steps: raw_steps}
 
-          case Kitchen.update_recipe(scope, recipe, params) do
-            {:ok, _recipe} ->
-              TldrWeb.PubSub.broadcast("recipe:#{recipe_id}", {:recipe, :reload})
-              {:ok, "SUCCESS"}
+          if pid do
+            send(pid, {:save_steps, params, "recipe:#{recipe_id}"})
+            {:ok, "SUCCESS"}
+          else
+            case Kitchen.update_recipe(scope, recipe, params) do
+              {:ok, _recipe} ->
+                TldrWeb.PubSub.broadcast("recipe:#{recipe_id}", {:recipe, :reload})
 
-            {:error, %Ecto.Changeset{} = _changeset} ->
-              {:error, "Error saving steps."}
+                {:ok, "SUCCESS"}
+
+              {:error, %Ecto.Changeset{} = _changeset} ->
+                {:error, "Error saving steps."}
+            end
           end
         end
       end

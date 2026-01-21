@@ -11,7 +11,7 @@
             <div class="hover:-translate-y-1 duration-150 ease-out">R</div>
           </div>
         </.link>
-        <p class="slogan text-base-content/50 text-sm uppercase tracking-[0.2em] mb-4">
+        <p class="hidden slogan text-base-content/50 text-sm uppercase tracking-[0.2em] mb-4">
           Your news in one place
         </p>
         <div class="flex flex-col gap-2">
@@ -26,17 +26,24 @@
 
       <%= cond do %>
         <% @current_scope && @current_scope.user && @recipes && Enum.count(@recipes) > 0 -> %>
-          <.link href={~p"/feed"} class="btn-landing text-base-content/70 hover:text-base-content mt-4">
+          <.link
+            href={~p"/feed"}
+            class="btn-landing text-base-content/70 hover:text-base-content mt-4"
+          >
             Go to Feed
           </.link>
-
         <% @current_scope && @current_scope.user && (@recipes == nil || Enum.empty?(@recipes)) -> %>
-          <.link href={~p"/recipes"} class="btn-landing text-base-content/70 hover:text-base-content mt-4">
+          <.link
+            href={~p"/recipes"}
+            class="btn-landing text-base-content/70 hover:text-base-content mt-4"
+          >
             Create Recipe
           </.link>
-
         <% true -> %>
-          <.link href={~p"/users/register"} class="btn-landing text-base-content/70 hover:text-base-content mt-4">
+          <.link
+            href={~p"/users/register"}
+            class="btn-landing text-base-content/70 hover:text-base-content mt-4"
+          >
             Get Started
           </.link>
       <% end %>

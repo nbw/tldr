@@ -46,7 +46,6 @@ defmodule TldrWeb.FeedLive.Index do
 
         {:ok, items} ->
           items
-          |> dbg
 
           []
 

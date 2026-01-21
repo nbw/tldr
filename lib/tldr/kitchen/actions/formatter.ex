@@ -71,6 +71,10 @@ defmodule Tldr.Kitchen.Actions.Formatter do
     {:ok, input}
   end
 
+  defp process_fields(fields, %Tldr.Core.HttpClient.Response{body: body}) do
+    process_fields(fields, body)
+  end
+
   defp process_fields(fields, input) do
     Enum.reduce_while(
       fields,

@@ -229,6 +229,46 @@ defmodule Tldr.Kitchen.Actions.FormatterTest do
     end
   end
 
+  describe "execute/2 with HTTP Response as input" do
+    test "extracts values from HTTP Response" do
+      action = %Formatter{
+        fields: %{
+          "title" => "$.title",
+          "url" => "$.url",
+          "date" => "$.time"
+        }
+      }
+
+      input =
+        %Tldr.Core.HttpClient.Response{
+          status: 200,
+          body: %{
+            "by" => "PaulHoule",
+            "descendants" => 2,
+            "id" => 46_698_469,
+            "kids" => [46_698_776],
+            "score" => 15,
+            "time" => 1_768_947_533,
+            "title" => "Provably unmasking malicious behavior through execution traces",
+            "type" => "story",
+            "url" => "https://arxiv.org/abs/2512.13821"
+          },
+          content_type: "application/json; charset=utf-8",
+          url: "https://hacker-news.firebaseio.com/v0/item/46698469.json"
+        }
+
+      step = %Step{actor: action}
+
+      assert {:ok, result} = Formatter.execute(step, input)
+
+      assert result == %{
+               "title" => "Provably unmasking malicious behavior through execution traces",
+               "url" => "https://arxiv.org/abs/2512.13821",
+               "date" => 1_768_947_533
+             }
+    end
+  end
+
   describe "validation" do
     test "returns error for unmatched opening braces" do
       action = %Formatter{

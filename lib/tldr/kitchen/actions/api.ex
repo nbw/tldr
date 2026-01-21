@@ -29,6 +29,10 @@ defmodule Tldr.Kitchen.Actions.Api do
   end
 
   @impl true
+  def execute(%Step{actor: %__MODULE__{url: nil}}, _input, _opts) do
+    {:error, "URL missing"}
+  end
+
   def execute(%Step{actor: %__MODULE__{method: "GET"} = action}, input, opts) do
     url =
       if String.contains?(action.url, "{{val}}") do
@@ -81,6 +85,20 @@ defmodule Tldr.Kitchen.Actions.Api do
     - content-type: #{response.content_type}
     - url: #{response.url}
     #{payload_summary(response.body)}
+    """
+  end
+
+  def summary([%Response{} = response | _rest] = responses) do
+    """
+    #{summary(response)}
+
+    - Note: #{length(responses)} items, but only showing first
+    """
+  end
+
+  def summary(_responses) do
+    """
+    API: error, unexpected input.
     """
   end
 

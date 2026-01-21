@@ -225,6 +225,23 @@ defmodule TldrWeb.RecipeLive.Edit do
     {:noreply, load_recipe(socket, socket.assigns.recipe.id)}
   end
 
+  def handle_info({:save_steps, params}, socket) do
+    Logger.debug("save steps: #{inspect(params)}")
+
+    %{current_scope: current_scope, recipe: recipe} = socket.assigns
+
+    case Kitchen.update_recipe(current_scope, recipe, params) do
+      {:ok, _recipe} ->
+        {:noreply,
+         socket
+         |> load_recipe(recipe.id)
+         |> put_flash(:info, "Recipe updated successfully")}
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        {:noreply, assign(socket, form: to_form(changeset))}
+    end
+  end
+
   defp save_recipe(socket, recipe_params) do
     case Kitchen.update_recipe(socket.assigns.current_scope, socket.assigns.recipe, recipe_params) do
       {:ok, _recipe} ->

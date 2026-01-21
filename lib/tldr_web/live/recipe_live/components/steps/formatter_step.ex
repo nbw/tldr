@@ -10,7 +10,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
   def step_params_inputs(%{action: "formatter"} = assigns) do
     ~H"""
     <div class="p-3 rounded">
-      <p class="text-sm text-base-content/70 mb-3">
+      <p class="text-xs text-base-content/70 mb-3">
         Extract fields from the input data using JSON paths.
       </p>
       <div class="space-y-2 mb-3">
@@ -38,7 +38,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
               <button
                 :if={!@locked}
                 type="button"
-                phx-click="step-extract:remove_extract_field"
+                phx-click="step-formatter:remove_field"
                 phx-value-id={step_id(@step_form)}
                 phx-value-idx={idx}
                 class="text-rose-400 hover:text-rose-500 text-sm"
@@ -53,10 +53,10 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
       <button
         :if={!@locked}
         type="button"
-        phx-click="step-formatter:add_formatter_field"
+        phx-click="step-formatter:add_field"
         phx-value-id={step_id(@step_form)}
         phx-value-index={step_index(@step_form)}
-        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 bg-gray-300/50 rounded p-2 text-gray-700 text-center text-sm hover:bg-gray-300/60"
+        class="mx-auto block w-full max-w-[10rem] border border-gray-400/70 rounded p-2 text-base-content text-center text-xs hover:bg-gray-300/60"
       >
         <.icon name="hero-plus-circle" class="w-6 h-6" /> Add Field
       </button>
@@ -64,7 +64,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
     """
   end
 
-  def handle_event("add_formatter_field", %{"id" => id}, socket) do
+  def handle_event("add_field", %{"id" => id}, socket) do
     changeset = socket.assigns.form.source
 
     steps =
@@ -91,7 +91,7 @@ defmodule TldrWeb.RecipeLive.Components.FormatterStep do
     {:noreply, assign(socket, form: to_form(new_changeset))}
   end
 
-  def handle_event("remove_extract_field", %{"id" => id, "idx" => idx}, socket) do
+  def handle_event("remove_field", %{"id" => id, "idx" => idx}, socket) do
     changeset = socket.assigns.form.source
 
     steps =

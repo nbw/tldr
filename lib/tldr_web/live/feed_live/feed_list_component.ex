@@ -23,7 +23,14 @@ defmodule TldrWeb.FeedLive.FeedListComponent do
           </div>
         </div>
         <div id="feed" class="flex flex-col gap-4">
-          <.feed_card :for={item <- items} item={item} />
+          <%= case items do %>
+            <% items when is_list(items) -> %>
+              <.feed_card :for={item <- items} item={item} />
+            <% {:ok, items} when is_list(items) -> %>
+              <.feed_card :for={item <- items} item={item} />
+            <% {:error, error} -> %>
+              <p>Something went wrong.</p>
+          <% end %>
         </div>
       </.async_result>
     </div>

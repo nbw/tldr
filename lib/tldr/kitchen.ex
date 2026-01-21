@@ -168,6 +168,7 @@ defmodule Tldr.Kitchen do
         title: "Feed Item",
         params: %{
           fields: %{
+            _index: nil,
             title: "",
             url: "",
             date: nil

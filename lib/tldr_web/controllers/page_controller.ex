@@ -6,6 +6,7 @@ defmodule TldrWeb.PageController do
       case conn.assigns[:current_scope] do
         scope when not is_nil(scope) ->
           Tldr.Kitchen.list_recipes(scope)
+
         _ ->
           nil
       end
