@@ -1,18 +1,45 @@
-# Tldr
+# TLDR
 
-To start your Phoenix server:
+A Phoenix web application.
 
-* Run `mix setup` to install and setup dependencies
-* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Requirements
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- Elixir 1.14+
+- Erlang/OTP 25+
+- PostgreSQL (for database)
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Getting Started
 
-## Learn more
+1. Install dependencies:
+   ```bash
+   mix setup
+   ```
 
-* Official website: https://www.phoenixframework.org/
-* Guides: https://hexdocs.pm/phoenix/overview.html
-* Docs: https://hexdocs.pm/phoenix
-* Forum: https://elixirforum.com/c/phoenix-forum
-* Source: https://github.com/phoenixframework/phoenix
+2. Start the Phoenix server:
+   ```bash
+   mix phx.server
+   ```
+   
+   Or run inside IEx for interactive debugging:
+   ```bash
+   iex -S mix phx.server
+   ```
+
+3. Visit [`localhost:4000`](http://localhost:4000) in your browser.
+
+## Development
+
+- Run tests: `mix test`
+- Format code: `mix format`
+- Check compilation: `mix compile --warnings-as-errors`
+
+## Deployment
+
+For production deployment, see the [Phoenix deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+
+## Learn More
+
+- [Phoenix Framework](https://www.phoenixframework.org/)
+- [Phoenix Guides](https://hexdocs.pm/phoenix/overview.html)
+- [Phoenix Docs](https://hexdocs.pm/phoenix)
+- [Elixir Forum](https://elixirforum.com/c/phoenix-forum)
